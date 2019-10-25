@@ -1,0 +1,136 @@
+
+
+\documentclass{standalone}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+
+\usepackage{tikz}
+
+\usetikzlibrary{calc,trees,patterns,positioning}
+
+
+\begin{document}
+	
+	
+	\begin{tikzpicture}
+	
+	
+	\node[draw, rectangle] (laser) {USL};
+	
+	%\node[draw, rectangle, xshift=1cm, right of=laser] (aom) {AOM};
+	
+	%\draw [->, >=stealth, line width=2pt, red] (laser) -- (aom);
+	
+	
+	\node[draw=none, xshift=1.5cm, minimum width=1.2cm, right of=laser] (cav) {};
+	
+	\draw [-] ([yshift=-0.25cm] cav.west) -- ([yshift=0.25cm] cav.west) -- ([xshift=0.1cm, yshift=0.25cm] cav.west) -- ([xshift=0.5cm, yshift=0.65cm] cav.west) -- ([xshift=1.5cm, yshift=0.65cm] cav.west) -- ([xshift=1.9cm, yshift=0.25cm] cav.west) -- ([xshift=2cm, yshift=0.25cm] cav.west) --
+	([xshift=2cm, yshift=-0.25cm] cav.west) -- ([xshift=1.9cm, yshift=-0.25cm] cav.west) -- ([xshift=1.5cm, yshift=-0.65cm] cav.west) -- ([xshift=0.5cm, yshift=-0.65cm] cav.west) -- ([xshift=0.1cm, yshift=-0.25cm] cav.west) -- ([yshift=-0.25cm] cav.west);
+	
+	\draw [-] ([xshift=0.1cm, yshift=0.25cm] cav.west) -- ([xshift=0.1cm, yshift=-0.25cm] cav.west);
+	
+	\draw [-] ([xshift=1.9cm, yshift=0.25cm] cav.west) -- ([xshift=1.9cm, yshift=-0.25cm] cav.west);
+	
+	\draw [-] ([xshift=0.5cm, yshift=0.65cm] cav.west) -- ([xshift=0.5cm, yshift=-0.65cm] cav.west);
+	
+	\draw [-] ([xshift=1.5cm, yshift=0.65cm] cav.west) -- ([xshift=1.5cm, yshift=-0.65cm] cav.west);
+	
+	
+	\draw [->, >=stealth, line width=2pt, red] (laser) -- (cav.west);
+	
+	
+	\node[draw, rectangle, yshift=-1.15em, below of=laser] (rio) {RIO};
+	
+	\node [circle, draw, fill=black, at=($(cav|-rio)$)] (pd1) {};
+	
+	\draw (pd1) ++(90:-.27) arc (90:270:-.27);
+	
+	
+
+	
+	
+	\draw [->, >=stealth, line width=2pt, red] (laser.east) .. controls ([xshift=4em, yshift=0em] laser.east) and ([xshift=0em, yshift=-4em] laser.east) .. (pd1);
+
+	
+	
+	
+	\end{tikzpicture}
+	
+\end{document}
+
+
+
+\documentclass{standalone}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[french]{babel}
+
+\usepackage{tikz}
+
+\usetikzlibrary{calc,trees,patterns,positioning}
+
+
+\begin{document}
+	
+	
+	\begin{tikzpicture}
+	
+	
+	\node[draw, rectangle] (laser) {USL};
+	
+	%\node[draw, rectangle, xshift=1cm, right of=laser] (aom) {AOM};
+	
+	%\draw [->, >=stealth, line width=2pt, red] (laser) -- (aom);
+	
+	
+	\node[draw=none, xshift=1.5cm, minimum width=1.2cm, right of=laser] (cav) {};
+	
+	\draw [-] ([yshift=-0.25cm] cav.west) -- ([yshift=0.25cm] cav.west) -- ([xshift=0.1cm, yshift=0.25cm] cav.west) -- ([xshift=0.5cm, yshift=0.65cm] cav.west) -- ([xshift=1.5cm, yshift=0.65cm] cav.west) -- ([xshift=1.9cm, yshift=0.25cm] cav.west) -- ([xshift=2cm, yshift=0.25cm] cav.west) --
+	
+	([xshift=2cm, yshift=-0.25cm] cav.west) -- ([xshift=1.9cm, yshift=-0.25cm] cav.west) -- ([xshift=1.5cm, yshift=-0.65cm] cav.west) -- ([xshift=0.5cm, yshift=-0.65cm] cav.west) -- ([xshift=0.1cm, yshift=-0.25cm] cav.west) -- ([yshift=-0.25cm] cav.west);
+	
+	\draw [-] ([xshift=0.1cm, yshift=0.25cm] cav.west) -- ([xshift=0.1cm, yshift=-0.25cm] cav.west);
+	
+	\draw [-] ([xshift=1.9cm, yshift=0.25cm] cav.west) -- ([xshift=1.9cm, yshift=-0.25cm] cav.west);
+	
+	\draw [-] ([xshift=0.5cm, yshift=0.65cm] cav.west) -- ([xshift=0.5cm, yshift=-0.65cm] cav.west);
+	
+	\draw [-] ([xshift=1.5cm, yshift=0.65cm] cav.west) -- ([xshift=1.5cm, yshift=-0.65cm] cav.west);
+	
+	
+	\draw [->, >=stealth, line width=2pt, red] (laser) -- (cav.west);
+	
+	
+	\node[draw, rectangle, yshift=-1.15em, below of=laser] (rio) {RIO};
+	
+	\node [circle, draw, fill=black, at=($(cav|-rio)$)] (pd1) {};
+	
+	\draw (pd1) ++(90:-.27) arc (90:270:-.27);
+	
+	
+	\draw [->, >=stealth, line width=2pt, red] (rio) -- (pd1);
+	
+	
+	\draw [->, >=stealth, line width=2pt, red] (laser.east) .. controls ([xshift=4em, yshift=0em] laser.east) and ([xshift=0em, yshift=-4em] laser.east) .. (pd1);
+	
+	
+	\node[draw, rectangle, xshift=-1cm, yshift=-1cm, at=(pd1.east)] (pid) {PID};
+	
+	
+	\draw [->, >=stealth, line width=2pt, black] ([xshift=0.1cm] pd1.east) -| ([xshift=1cm, yshift=-1cm] pd1.east) -- (pid);
+	
+	\draw [->, >=stealth, line width=2pt, black] (pid) -| (rio);
+	
+	
+	
+	\end{tikzpicture}
+	
+\end{document}
+

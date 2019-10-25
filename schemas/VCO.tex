@@ -1,0 +1,58 @@
+\documentclass{standalone}
+
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{colordvi}
+\usepackage[french]{babel}
+
+\usepackage{tikz}
+
+\usetikzlibrary{calc,trees,patterns,positioning,shapes}
+
+
+\begin{document}
+\begin{tikzpicture}	
+\node [circle, draw ,minimum size=.6cm] (osc1){};
+\draw ([xshift=-0.2cm] osc1.center) sin ([xshift=-0.10cm, yshift=-0.10cm] osc1.center) cos (osc1.center) sin ([xshift=0.10cm, yshift=0.10cm] osc1.center) cos ([xshift=0.2cm] osc1.center);
+
+\node[xshift=0.8cm, right of=osc1, xshift=-0.5cm] (o1) {out};
+\draw [->,>=stealth,line width=2pt,blue] (osc1) -- (o1);
+
+\node[draw, rectangle, minimum size=.6cm, left of=osc1, xshift=0.2cm, above of=osc1] (plus) {$+$};
+\draw [->,>=stealth,line width=2pt,blue] (plus.east) -| (osc1.north);
+
+\node [circle, draw ,minimum size=.6cm, left of=plus] (mix1) {};
+\draw [-] (mix1.south west) -- (mix1.north east);
+\draw [-] (mix1.south east) -- (mix1.north west);
+\node [circle, draw ,minimum size=.6cm, xshift=0.2cm, left of=plus, left of=plus, below of=osc1] (mix2) {};
+\draw [-] (mix2.south west) -- (mix2.north east);
+\draw [-] (mix2.south east) -- (mix2.north west);
+\node[above of=plus] (f0) {$f_0$};
+\draw [->,>=stealth,line width=2pt,blue] (f0) -- (plus);
+
+\draw [->,>=stealth,line width=2pt,blue] (mix1) -- (plus);
+\draw [->,>=stealth,line width=2pt,blue] (mix2) -| (osc1.south);
+
+\node [circle, draw ,minimum size=.6cm, above of=mix1, left of=mix1, yshift=-0.2cm] (osc2){};
+\draw ([xshift=-0.2cm] osc2.center) sin ([xshift=-0.10cm, yshift=-0.10cm] osc2.center) cos (osc2.center) sin ([xshift=0.10cm, yshift=0.10cm] osc2.center) cos ([xshift=0.2cm] osc2.center);
+
+\node [circle, draw ,minimum size=.6cm, below of=mix2, left of=mix2, yshift=0.2cm] (osc3){};
+\draw ([xshift=-0.2cm] osc3.center) sin ([xshift=-0.10cm, yshift=-0.10cm] osc3.center) cos (osc3.center) sin ([xshift=0.10cm, yshift=0.10cm] osc3.center) cos ([xshift=0.2cm] osc3.center);
+
+\node[draw, rectangle, minimum size=.6cm, left of=osc1, xshift=-1.8cm] (mampl) {$\lambda$};
+
+\draw [->, >=stealth, line width=2pt, blue] (osc2.east) .. controls ([xshift=0.1cm, yshift=0cm] osc2.east) and ([xshift=0.2cm, yshift=0cm] osc2.east) ..(mix1.north west);
+\draw [->, >=stealth, line width=2pt, blue] (osc3.east) .. controls ([xshift=0.1cm, yshift=0cm] osc3.east) and ([xshift=0.2cm, yshift=0cm] osc3.east) ..(mix2.south west);
+
+\draw [->, >=stealth, line width=2pt, blue] ([yshift=0.2cm] mampl.south east) .. controls ([xshift=0.1cm, yshift=0.2cm] mampl.south east) and ([xshift=0.2cm, yshift=0.2cm] mampl.south east) ..(mix2.north west);
+
+\draw [->, >=stealth, line width=2pt, blue] ([yshift=-0.2cm] mampl.north east) .. controls ([xshift=0.1cm, yshift=-0.2cm] mampl.north east) and ([xshift=0.2cm, yshift=-0.2cm] mampl.north east) ..(mix1.south west);
+
+\node[left of=osc2, xshift=-0.2cm] () {FM\_NCO};
+\node[left of=osc3, xshift=-0.2cm] () {PM\_NCO};
+\node[left of=mampl, xshift=-0.5cm] () {FM/PM\_ampl};
+\node[xshift=+0.5cm, yshift=+0.7cm] () {$p_{inc}$};
+\node[xshift=+0.5cm, yshift=-0.7cm] () {$p_{off}$};
+\end{tikzpicture} \\
+\end{document}

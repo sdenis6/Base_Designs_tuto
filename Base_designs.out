@@ -1,0 +1,19 @@
+\BOOKMARK [1][-]{section.1}{Reminder on signal dynamics}{}% 1
+\BOOKMARK [1][-]{section.2}{Webserver}{}% 2
+\BOOKMARK [1][-]{section.3}{Double voltage source}{}% 3
+\BOOKMARK [1][-]{section.4}{Double DDS}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{IP configuration}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Webserver configuration}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Expected output}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Unexpected output}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Amplitude modulation V1}{}% 9
+\BOOKMARK [2][-]{subsection.5.1}{IP configuration}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.2}{Webserver configuration}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.3}{Expected output}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.4}{Unexpected output}{section.5}% 13
+\BOOKMARK [1][-]{section.6}{Amplitude modulation V2}{}% 14
+\BOOKMARK [2][-]{subsection.6.1}{IP configuration}{section.6}% 15
+\BOOKMARK [2][-]{subsection.6.2}{Webserver configuration}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.3}{Expected output}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.4}{Unexpected output}{section.6}% 18
+\BOOKMARK [1][-]{section.7}{Frequency and phase modulation of a NCO}{}% 19
