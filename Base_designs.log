@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.6.19)  25 OCT 2019 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.6.19)  13 JAN 2020 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -711,46 +711,60 @@ File: lstlang2.sty 2018/09/02 1.7 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
 )
-(./Base_designs.aux
-
-LaTeX Warning: Label `fig:doubleDDS' multiply defined.
-
-
-LaTeX Warning: Label `fig:doubleDDS' multiply defined.
-
-
-LaTeX Warning: Label `fig:mod_ampl' multiply defined.
-
+(/usr/share/texlive/texmf-dist/tex/latex/arydshln/arydshln.sty
+Package: arydshln 2019/02/21 v1.76 
+\dashlinedash=\dimen194
+\dashlinegap=\dimen195
+\adl@box=\box72
+\adl@height=\dimen196
+\adl@heightsave=\dimen197
+\adl@depth=\dimen198
+\adl@depthsave=\dimen199
+\adl@finaldepth=\dimen256
+\adl@columns=\count157
+\adl@ncol=\count158
+\adl@currentcolumn=\count159
+\adl@currentcolumnsave=\count160
+\adl@totalheight=\count161
+\adl@totalheightsave=\count162
+\adl@dash=\count163
+\adl@gap=\count164
+\adl@cla=\count165
+\adl@clb=\count166
+\adl@everyvbox=\toks38
+\adl@LTpagetotal=\dimen257
 )
+(./Base_designs.aux)
 \openout1 = `Base_designs.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count157
-\scratchdimen=\dimen194
-\scratchbox=\box72
-\nofMPsegments=\count158
-\nofMParguments=\count159
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count160
-\MPscratchDim=\dimen195
-\MPnumerator=\count161
-\makeMPintoPDFobject=\count162
-\everyMPtoPDFconversion=\toks39
+\scratchcounter=\count167
+\scratchdimen=\dimen258
+\scratchbox=\box73
+\nofMPsegments=\count168
+\nofMParguments=\count169
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count170
+\MPscratchDim=\dimen259
+\MPnumerator=\count171
+\makeMPintoPDFobject=\count172
+\everyMPtoPDFconversion=\toks40
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -768,8 +782,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box73
-Package hyperref Info: Link coloring ON on input line 45.
+\AtBeginShipoutBox=\box74
+Package hyperref Info: Link coloring ON on input line 46.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -777,11 +791,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count163
+\c@section@level=\count173
 )
-LaTeX Info: Redefining \ref on input line 45.
-LaTeX Info: Redefining \pageref on input line 45.
-LaTeX Info: Redefining \nameref on input line 45.
+LaTeX Info: Redefining \ref on input line 46.
+LaTeX Info: Redefining \pageref on input line 46.
+LaTeX Info: Redefining \nameref on input line 46.
 
 (./Base_designs.out) (./Base_designs.out)
 \@outlinefile=\write5
@@ -791,47 +805,47 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count164
+\c@lstlisting=\count174
 
 ABD: EveryShipout initializing macros
-Overfull \hbox (8.01984pt too wide) in paragraph at lines 53--55
+Overfull \hbox (8.01984pt too wide) in paragraph at lines 54--56
 \OT1/cmr/m/n/12 the Os-cil-la-torIMP ecosys-tem, oth-er-wise re-fer to : [][]ht
 tps://github.com/oscimp/oscimpDigital[][].
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 77.
+LaTeX Font Info:    Try loading font information for U+msa on input line 78.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 77.
+LaTeX Font Info:    Try loading font information for U+msb on input line 78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<figures/overflow.jpg, id=85, 576.65437pt x 319.1925pt>
+<figures/overflow.jpg, id=137, 576.65437pt x 319.1925pt>
 File: figures/overflow.jpg Graphic file (type jpg)
 <use figures/overflow.jpg>
-Package pdftex.def Info: figures/overflow.jpg  used on input line 81.
+Package pdftex.def Info: figures/overflow.jpg  used on input line 82.
 (pdftex.def)             Requested size: 230.36061pt x 127.50914pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/overflow.jpg>]
-<figures/Offset.pdf, id=108, 614.295pt x 794.97pt>
+<figures/Offset.pdf, id=160, 614.295pt x 794.97pt>
 File: figures/Offset.pdf Graphic file (type pdf)
 <use figures/Offset.pdf>
-Package pdftex.def Info: figures/Offset.pdf  used on input line 97.
+Package pdftex.def Info: figures/Offset.pdf  used on input line 98.
 (pdftex.def)             Requested size: 142.26378pt x 79.44722pt.
 
-Overfull \hbox (4.046pt too wide) in paragraph at lines 97--97
+Overfull \hbox (4.046pt too wide) in paragraph at lines 98--98
  []|[]| 
  []
 
-<figures/splitter.pdf, id=110, 614.295pt x 794.97pt>
+<figures/splitter.pdf, id=162, 614.295pt x 794.97pt>
 File: figures/splitter.pdf Graphic file (type pdf)
 <use figures/splitter.pdf>
 Package pdftex.def Info: figures/splitter.pdf  used on input line 109.
 (pdftex.def)             Requested size: 136.5733pt x 65.81226pt.
-<figures/addsub.pdf, id=112, 614.295pt x 794.97pt>
+<figures/addsub.pdf, id=164, 614.295pt x 794.97pt>
 File: figures/addsub.pdf Graphic file (type pdf)
 <use figures/addsub.pdf>
 Package pdftex.def Info: figures/addsub.pdf  used on input line 124.
@@ -841,22 +855,22 @@ Overfull \hbox (32.49875pt too wide) in paragraph at lines 124--124
  []|[]| 
  []
 
-<figures/mixer.pdf, id=114, 614.295pt x 794.97pt>
+<figures/mixer.pdf, id=166, 614.295pt x 794.97pt>
 File: figures/mixer.pdf Graphic file (type pdf)
 <use figures/mixer.pdf>
 Package pdftex.def Info: figures/mixer.pdf  used on input line 136.
 (pdftex.def)             Requested size: 130.88284pt x 66.41101pt.
-<figures/fir.pdf, id=116, 614.295pt x 794.97pt>
+<figures/fir.pdf, id=168, 614.295pt x 794.97pt>
 File: figures/fir.pdf Graphic file (type pdf)
 <use figures/fir.pdf>
 Package pdftex.def Info: figures/fir.pdf  used on input line 150.
 (pdftex.def)             Requested size: 136.5733pt x 76.26971pt.
-<figures/exp.pdf, id=118, 614.295pt x 794.97pt>
+<figures/exp.pdf, id=170, 614.295pt x 794.97pt>
 File: figures/exp.pdf Graphic file (type pdf)
 <use figures/exp.pdf>
 Package pdftex.def Info: figures/exp.pdf  used on input line 162.
 (pdftex.def)             Requested size: 128.0374pt x 55.1617pt.
-<figures/shift1.pdf, id=120, 614.295pt x 794.97pt>
+<figures/shift1.pdf, id=172, 614.295pt x 794.97pt>
 File: figures/shift1.pdf Graphic file (type pdf)
 <use figures/shift1.pdf>
 Package pdftex.def Info: figures/shift1.pdf  used on input line 163.
@@ -866,7 +880,7 @@ Overfull \hbox (4.046pt too wide) in paragraph at lines 162--163
  []| 
  []
 
-<figures/switch.pdf, id=122, 614.295pt x 794.97pt>
+<figures/switch.pdf, id=174, 614.295pt x 794.97pt>
 File: figures/switch.pdf Graphic file (type pdf)
 <use figures/switch.pdf>
 Package pdftex.def Info: figures/switch.pdf  used on input line 190.
@@ -879,207 +893,326 @@ File: tikzlibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\arrowsize=\dimen196
+\arrowsize=\dimen260
 ))
-Overfull \vbox (8.70627pt too high) has occurred while \output is active []
+Overfull \vbox (11.8216pt too high) has occurred while \output is active []
 
 
 [2 <./figures/Offset.pdf> <./figures/splitter.pdf> <./figures/addsub.pdf> <./fi
 gures/mixer.pdf> <./figures/fir.pdf> <./figures/exp.pdf> <./figures/shift1.pdf>
  <./figures/switch.pdf>]
-<figures/mean.pdf, id=211, 614.295pt x 794.97pt>
+<figures/mean.pdf, id=264, 614.295pt x 794.97pt>
 File: figures/mean.pdf Graphic file (type pdf)
 <use figures/mean.pdf>
 Package pdftex.def Info: figures/mean.pdf  used on input line 223.
-(pdftex.def)             Requested size: 119.50148pt x 50.54463pt.
-<figures/delay.pdf, id=213, 614.295pt x 794.97pt>
+(pdftex.def)             Requested size: 108.12054pt x 45.73178pt.
+<figures/delay.pdf, id=266, 614.295pt x 794.97pt>
 File: figures/delay.pdf Graphic file (type pdf)
 <use figures/delay.pdf>
 Package pdftex.def Info: figures/delay.pdf  used on input line 236.
-(pdftex.def)             Requested size: 142.26378pt x 88.48105pt.
-
-Overfull \hbox (4.046pt too wide) in paragraph at lines 236--236
- []|[]| 
- []
-
-<figures/axi2dac.pdf, id=215, 614.295pt x 794.97pt>
+(pdftex.def)             Requested size: 122.34692pt x 73.3072pt.
+Missing character: There is no b in font nullfont!
+Missing character: There is no g in font nullfont!
+<figures/axi2dac.pdf, id=268, 614.295pt x 794.97pt>
 File: figures/axi2dac.pdf Graphic file (type pdf)
 <use figures/axi2dac.pdf>
-Package pdftex.def Info: figures/axi2dac.pdf  used on input line 247.
-(pdftex.def)             Requested size: 142.26378pt x 100.61281pt.
-
-Overfull \hbox (4.046pt too wide) in paragraph at lines 247--247
- []|[]| 
- []
-
-<figures/nco.pdf, id=217, 614.295pt x 794.97pt>
+Package pdftex.def Info: figures/axi2dac.pdf  used on input line 248.
+(pdftex.def)             Requested size: 113.81102pt x 77.90103pt.
+<figures/nco.pdf, id=270, 614.295pt x 794.97pt>
 File: figures/nco.pdf Graphic file (type pdf)
 <use figures/nco.pdf>
-Package pdftex.def Info: figures/nco.pdf  used on input line 257.
-(pdftex.def)             Requested size: 142.26378pt x 112.12662pt.
-
-Overfull \hbox (4.046pt too wide) in paragraph at lines 257--258
- []|[]| 
- []
-
-<figures/pid.pdf, id=219, 614.295pt x 794.97pt>
-File: figures/pid.pdf Graphic file (type pdf)
-<use figures/pid.pdf>
-Package pdftex.def Info: figures/pid.pdf  used on input line 270.
-(pdftex.def)             Requested size: 142.26378pt x 112.12662pt.
-
-Overfull \hbox (4.046pt too wide) in paragraph at lines 270--270
- []|[]| 
- []
-
-<figures/dat2ram.pdf, id=221, 614.295pt x 794.97pt>
+Package pdftex.def Info: figures/nco.pdf  used on input line 258.
+(pdftex.def)             Requested size: 128.0374pt x 98.29768pt.
+<figures/pidv3.pdf, id=272, 614.295pt x 794.97pt>
+File: figures/pidv3.pdf Graphic file (type pdf)
+<use figures/pidv3.pdf>
+Package pdftex.def Info: figures/pidv3.pdf  used on input line 271.
+(pdftex.def)             Requested size: 113.81102pt x 98.8156pt.
+<figures/dat2ram.pdf, id=274, 614.295pt x 794.97pt>
 File: figures/dat2ram.pdf Graphic file (type pdf)
 <use figures/dat2ram.pdf>
-Package pdftex.def Info: figures/dat2ram.pdf  used on input line 280.
-(pdftex.def)             Requested size: 136.5733pt x 104.15627pt.
+Package pdftex.def Info: figures/dat2ram.pdf  used on input line 281.
+(pdftex.def)             Requested size: 108.12054pt x 77.21027pt.
+<figures/convert.pdf, id=276, 614.295pt x 794.97pt>
+File: figures/convert.pdf Graphic file (type pdf)
+<use figures/convert.pdf>
+Package pdftex.def Info: figures/convert.pdf  used on input line 293.
+(pdftex.def)             Requested size: 130.88284pt x 98.11919pt.
 
-Overfull \vbox (2.1743pt too high) has occurred while \output is active []
+Overfull \vbox (13.27205pt too high) has occurred while \output is active []
 
 
 [3 <./figures/mean.pdf> <./figures/delay.pdf> <./figures/axi2dac.pdf> <./figure
-s/nco.pdf> <./figures/pid.pdf> <./figures/dat2ram.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 300.
+s/nco.pdf> <./figures/pidv3.pdf> <./figures/dat2ram.pdf> <./figures/convert.pdf
+>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 322.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 300.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 322.
  [4]
-<webserver/Super_webserver.png, id=330, 915.42pt x 388.45125pt>
+<webserver/Super_webserver.png, id=394, 915.42pt x 388.45125pt>
 File: webserver/Super_webserver.png Graphic file (type png)
 <use webserver/Super_webserver.png>
-Package pdftex.def Info: webserver/Super_webserver.png  used on input line 406.
+Package pdftex.def Info: webserver/Super_webserver.png  used on input line 428.
 
 (pdftex.def)             Requested size: 426.79134pt x 181.10214pt.
  [5]
-<figures/GeneTension.pdf, id=388, 614.295pt x 794.97pt>
+Underfull \hbox (badness 10000) in paragraph at lines 434--437
+
+ []
+
+<figures/GeneTension.pdf, id=453, 614.295pt x 794.97pt>
 File: figures/GeneTension.pdf Graphic file (type pdf)
 <use figures/GeneTension.pdf>
-Package pdftex.def Info: figures/GeneTension.pdf  used on input line 422.
-(pdftex.def)             Requested size: 284.52756pt x 103.42906pt.
- [6 <./figures/GeneTension.pdf> <./webserver/Super_webserver.png>]
-
-LaTeX Warning: Reference `sect:AM' on page 7 undefined on input line 482.
-
-
-LaTeX Warning: Reference `sect:FM' on page 7 undefined on input line 482.
-
-<figures/doubleDDS.pdf, id=409, 614.295pt x 794.97pt>
+Package pdftex.def Info: figures/GeneTension.pdf  used on input line 450.
+(pdftex.def)             Requested size: 341.43306pt x 124.11488pt.
+[6 <./webserver/Super_webserver.png>]
+<figures/doubleDDS.pdf, id=465, 614.295pt x 794.97pt>
 File: figures/doubleDDS.pdf Graphic file (type pdf)
 <use figures/doubleDDS.pdf>
-Package pdftex.def Info: figures/doubleDDS.pdf  used on input line 486.
-(pdftex.def)             Requested size: 455.24408pt x 213.68817pt.
-[7 <./figures/doubleDDS.pdf>]
+Package pdftex.def Info: figures/doubleDDS.pdf  used on input line 518.
+(pdftex.def)             Requested size: 455.24408pt x 265.85347pt.
+ [7 <./figures/GeneTension.pdf>] [8 <./figures/doubleDDS.pdf>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 516.
- [8]
-<webserver/2019-10-14-143651_927x541_scrot.png, id=436, 930.47626pt x 543.02875
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 551.
+<webserver/2019-10-14-143651_927x541_scrot.png, id=501, 930.47626pt x 543.02875
 pt>
 File: webserver/2019-10-14-143651_927x541_scrot.png Graphic file (type png)
 <use webserver/2019-10-14-143651_927x541_scrot.png>
 Package pdftex.def Info: webserver/2019-10-14-143651_927x541_scrot.png  used on
- input line 526.
+ input line 561.
 (pdftex.def)             Requested size: 398.33858pt x 232.47034pt.
-<scope/doubleDDSok.pdf, id=438, 809.0225pt x 364.36125pt>
+<scope/doubleDDSok.pdf, id=503, 809.0225pt x 364.36125pt>
 File: scope/doubleDDSok.pdf Graphic file (type pdf)
 <use scope/doubleDDSok.pdf>
-Package pdftex.def Info: scope/doubleDDSok.pdf  used on input line 542.
+Package pdftex.def Info: scope/doubleDDSok.pdf  used on input line 577.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
- [9 <./webserver/2019-10-14-143651_927x541_scrot.png> <./scope/DoubleDDSok.pdf>
-]
-<scope/doubleDDSokPhi.pdf, id=455, 809.0225pt x 364.36125pt>
+ [9 <./webserver/2019-10-14-143651_927x541_scrot.png>]
+<scope/doubleDDSokPhi.pdf, id=511, 809.0225pt x 364.36125pt>
 File: scope/doubleDDSokPhi.pdf Graphic file (type pdf)
 <use scope/doubleDDSokPhi.pdf>
-Package pdftex.def Info: scope/doubleDDSokPhi.pdf  used on input line 552.
+Package pdftex.def Info: scope/doubleDDSokPhi.pdf  used on input line 587.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
-<scope/doubleDDSpasOk.pdf, id=457, 809.0225pt x 364.36125pt>
+<scope/doubleDDSpasOk.pdf, id=513, 809.0225pt x 364.36125pt>
 File: scope/doubleDDSpasOk.pdf Graphic file (type pdf)
 <use scope/doubleDDSpasOk.pdf>
-Package pdftex.def Info: scope/doubleDDSpasOk.pdf  used on input line 566.
+Package pdftex.def Info: scope/doubleDDSpasOk.pdf  used on input line 601.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
 
-Overfull \hbox (35.07155pt too wide) in paragraph at lines 571--572
+Overfull \hbox (35.07155pt too wide) in paragraph at lines 606--607
 []\OT1/cmr/m/n/12 Solution: de-crease ei-ther $\OML/cmm/m/it/12 dds\OT1/cmr/m/n
 /12 1[]\OML/cmm/m/it/12 ampl$ \OT1/cmr/m/n/12 or $\OML/cmm/m/it/12 dds\OT1/cmr/
 m/n/12 1[]\OML/cmm/m/it/12 offset$\OT1/cmr/m/n/12 , such as $[]$. 
  []
 
-[10 <./scope/DoubleDDSokPhi.pdf> <./scope/DoubleDDSpasOk.pdf>]
-<design/mod_ampl1.pdf, id=484, 614.295pt x 794.97pt>
+[10 <./scope/DoubleDDSok.pdf> <./scope/DoubleDDSokPhi.pdf>] [11 <./scope/Double
+DDSpasOk.pdf>]
+<design/mod_ampl1.pdf, id=554, 614.295pt x 794.97pt>
 File: design/mod_ampl1.pdf Graphic file (type pdf)
 <use design/mod_ampl1.pdf>
-Package pdftex.def Info: design/mod_ampl1.pdf  used on input line 628.
-(pdftex.def)             Requested size: 426.79134pt x 216.91603pt.
- [11]
-<webserver/AM_V1.png, id=491, 792.9625pt x 329.23pt>
+Package pdftex.def Info: design/mod_ampl1.pdf  used on input line 665.
+(pdftex.def)             Requested size: 398.33858pt x 202.45807pt.
+<webserver/AM_V1.png, id=557, 792.9625pt x 329.23pt>
 File: webserver/AM_V1.png Graphic file (type png)
 <use webserver/AM_V1.png>
-Package pdftex.def Info: webserver/AM_V1.png  used on input line 662.
+Package pdftex.def Info: webserver/AM_V1.png  used on input line 702.
 (pdftex.def)             Requested size: 398.33858pt x 165.38823pt.
  [12 <./design/mod_ampl1.pdf>]
-<design/mod_ampl.pdf, id=510, 614.295pt x 794.97pt>
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
+
+ []
+
+<scope/Mod_amplOkV1h05.pdf, id=577, 809.0225pt x 364.36125pt>
+File: scope/Mod_amplOkV1h05.pdf Graphic file (type pdf)
+<use scope/Mod_amplOkV1h05.pdf>
+Package pdftex.def Info: scope/Mod_amplOkV1h05.pdf  used on input line 717.
+(pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
+<scope/Mod_amplOkV1h10.pdf, id=578, 809.0225pt x 364.36125pt>
+File: scope/Mod_amplOkV1h10.pdf Graphic file (type pdf)
+<use scope/Mod_amplOkV1h10.pdf>
+Package pdftex.def Info: scope/Mod_amplOkV1h10.pdf  used on input line 727.
+(pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
+[13 <./webserver/AM_V1.png> <./scope/Mod_amplOkV1h05.pdf>]
+<scope/Mod_amplOkV1h20.pdf, id=596, 809.0225pt x 364.36125pt>
+File: scope/Mod_amplOkV1h20.pdf Graphic file (type pdf)
+<use scope/Mod_amplOkV1h20.pdf>
+Package pdftex.def Info: scope/Mod_amplOkV1h20.pdf  used on input line 737.
+(pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
+<scope/Mod_amplPasOkV1.pdf, id=597, 809.0225pt x 364.36125pt>
+File: scope/Mod_amplPasOkV1.pdf Graphic file (type pdf)
+<use scope/Mod_amplPasOkV1.pdf>
+Package pdftex.def Info: scope/Mod_amplPasOkV1.pdf  used on input line 749.
+(pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
+ [14 <./scope/Mod_amplOkV1h10.pdf> <./scope/Mod_amplOkV1h20.pdf>]
+<design/mod_ampl.pdf, id=624, 614.295pt x 794.97pt>
 File: design/mod_ampl.pdf Graphic file (type pdf)
 <use design/mod_ampl.pdf>
-Package pdftex.def Info: design/mod_ampl.pdf  used on input line 709.
-(pdftex.def)             Requested size: 455.24408pt x 278.97083pt.
- [13 <./webserver/AM_V1.png>]
-<figures/ampl_mod_webserver.png, id=518, 792.9625pt x 262.9825pt>
+Package pdftex.def Info: design/mod_ampl.pdf  used on input line 792.
+(pdftex.def)             Requested size: 455.24408pt x 245.33514pt.
+ [15 <./scope/Mod_amplPasOkV1.pdf>] [16 <./design/mod_ampl.pdf>]
+<figures/ampl_mod_webserver.png, id=657, 792.9625pt x 262.9825pt>
 File: figures/ampl_mod_webserver.png Graphic file (type png)
 <use figures/ampl_mod_webserver.png>
-Package pdftex.def Info: figures/ampl_mod_webserver.png  used on input line 740
+Package pdftex.def Info: figures/ampl_mod_webserver.png  used on input line 826
 .
 (pdftex.def)             Requested size: 398.33858pt x 132.10889pt.
- [14 <./design/mod_ampl.pdf>]
-<scope/Mod_amplOk.pdf, id=535, 809.0225pt x 364.36125pt>
+<scope/Mod_amplOk.pdf, id=658, 809.0225pt x 364.36125pt>
 File: scope/Mod_amplOk.pdf Graphic file (type pdf)
 <use scope/Mod_amplOk.pdf>
-Package pdftex.def Info: scope/Mod_amplOk.pdf  used on input line 753.
+Package pdftex.def Info: scope/Mod_amplOk.pdf  used on input line 839.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
-<scope/Mod_amplPasOk.pdf, id=537, 809.0225pt x 364.36125pt>
+<scope/Mod_amplPasOk.pdf, id=660, 809.0225pt x 364.36125pt>
 File: scope/Mod_amplPasOk.pdf Graphic file (type pdf)
 <use scope/Mod_amplPasOk.pdf>
-Package pdftex.def Info: scope/Mod_amplPasOk.pdf  used on input line 765.
+Package pdftex.def Info: scope/Mod_amplPasOk.pdf  used on input line 851.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
+ [17 <./figures/ampl_mod_webserver.png> <./scope/Mod_amplOk.pdf>]
+<design/FMPM3.pdf, id=681, 614.295pt x 794.97pt>
+File: design/FMPM3.pdf Graphic file (type pdf)
+<use design/FMPM3.pdf>
+Package pdftex.def Info: design/FMPM3.pdf  used on input line 868.
+(pdftex.def)             Requested size: 239.00298pt x 708.3507pt.
 
-[15 <./figures/ampl_mod_webserver.png> <./scope/Mod_amplOk.pdf>]
-<design/FMPM.pdf, id=558, 614.295pt x 794.97pt>
-File: design/FMPM.pdf Graphic file (type pdf)
-<use design/FMPM.pdf>
-Package pdftex.def Info: design/FMPM.pdf  used on input line 826.
-(pdftex.def)             Requested size: 455.24408pt x 213.19388pt.
- [16 <./scope/Mod_amplPasOk.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 837.
- [17 <./design/FMPM.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 837.
+
+LaTeX Warning: Float too large for page by 39.76604pt on input line 872.
+
+[18 <./scope/Mod_amplPasOk.pdf>] [19 <./design/FMPM3.pdf, page is rotated 270 d
+egrees>]
+<webserver/2020-01-07-090526_907x561_scrot.png, id=715, 910.40125pt x 563.10374
+pt>
+File: webserver/2020-01-07-090526_907x561_scrot.png Graphic file (type png)
+<use webserver/2020-01-07-090526_907x561_scrot.png>
+Package pdftex.def Info: webserver/2020-01-07-090526_907x561_scrot.png  used on
+ input line 987.
+(pdftex.def)             Requested size: 398.33858pt x 246.38306pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 995--998
+
+ []
+
+[20]
+<scope/Mod_freqOk.pdf, id=723, 873.2625pt x 419.5675pt>
+File: scope/Mod_freqOk.pdf Graphic file (type pdf)
+<use scope/Mod_freqOk.pdf>
+Package pdftex.def Info: scope/Mod_freqOk.pdf  used on input line 1001.
+(pdftex.def)             Requested size: 398.33858pt x 191.38365pt.
+ [21 <./webserver/2020-01-07-090526_907x561_scrot.png> <./scope/Mod_freqOK.pdf>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1012
+
+ []
+
+<scope/Mod_phaseOk.pdf, id=741, 873.2625pt x 419.5675pt>
+File: scope/Mod_phaseOk.pdf Graphic file (type pdf)
+<use scope/Mod_phaseOk.pdf>
+Package pdftex.def Info: scope/Mod_phaseOk.pdf  used on input line 1015.
+(pdftex.def)             Requested size: 398.33858pt x 191.38365pt.
+[22 <./scope/Mod_phaseOK.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1044--1047
+
+ []
+
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 1050
+.
+(/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1050.
+
+ [23]
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1087
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1087
+
+ []
+
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./curves/lp55co.pdf): PDF inclusion: fo
+und PDF version <1.7>, but at most version <1.5> allowed
+<curves/lp55co.pdf, id=778, 614.295pt x 794.97pt>
+File: curves/lp55co.pdf Graphic file (type pdf)
+<use curves/lp55co.pdf>
+Package pdftex.def Info: curves/lp55co.pdf  used on input line 1096.
+(pdftex.def)             Requested size: 341.43306pt x 257.87701pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1106
+
+ []
+
+[24 <./curves/lp55co.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./curves/lp15co.pdf): PDF inclusion: fo
+und PDF version <1.7>, but at most version <1.5> allowed
+<curves/lp15co.pdf, id=799, 614.295pt x 794.97pt>
+File: curves/lp15co.pdf Graphic file (type pdf)
+<use curves/lp15co.pdf>
+Package pdftex.def Info: curves/lp15co.pdf  used on input line 1115.
+(pdftex.def)             Requested size: 341.43306pt x 257.87701pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1125
+
+ []
+
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./curves/bs55co.pdf): PDF inclusion: fo
+und PDF version <1.7>, but at most version <1.5> allowed
+<curves/bs55co.pdf, id=801, 614.295pt x 794.97pt>
+File: curves/bs55co.pdf Graphic file (type pdf)
+<use curves/bs55co.pdf>
+Package pdftex.def Info: curves/bs55co.pdf  used on input line 1134.
+(pdftex.def)             Requested size: 341.43306pt x 257.87701pt.
+[25 <./curves/lp15co.pdf>] [26 <./curves/bs55co.pdf>]
+<design/demod.pdf, id=835, 614.295pt x 794.97pt>
+File: design/demod.pdf Graphic file (type pdf)
+<use design/demod.pdf>
+Package pdftex.def Info: design/demod.pdf  used on input line 1212.
+(pdftex.def)             Requested size: 426.79134pt x 207.60233pt.
+ [27 <./design/demod.pdf>]
+<webserver/2020-01-08-082405_907x201_scrot.png, id=860, 910.40125pt x 201.75375
+pt>
+File: webserver/2020-01-08-082405_907x201_scrot.png Graphic file (type png)
+<use webserver/2020-01-08-082405_907x201_scrot.png>
+Package pdftex.def Info: webserver/2020-01-08-082405_907x201_scrot.png  used on
+ input line 1251.
+(pdftex.def)             Requested size: 426.79134pt x 94.58107pt.
+[28 <./webserver/2020-01-08-082405_907x201_scrot.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1272.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1272.
  (./Base_designs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 837.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 837.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1272.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1272.
+
 Package rerunfilecheck Info: File `Base_designs.out' has not changed.
-(rerunfilecheck)             Checksum: 8E8C27729B37CDFE73A3A45E6E0422D0;1208.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 837.
+(rerunfilecheck)             Checksum: 04CCB50795CFF33EDD3B5A73DFC44C24;2093.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1272.
  ) 
 Here is how much of TeX's memory you used:
- 20987 strings out of 494459
- 383049 string characters out of 6174603
+ 21563 strings out of 494459
+ 391736 string characters out of 6174603
  813979 words of memory out of 5000000
- 24128 multiletter control sequences out of 15000+600000
- 12016 words of font info for 47 fonts, out of 8000000 for 9000
+ 24603 multiletter control sequences out of 15000+600000
+ 12363 words of font info for 48 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 55i,15n,52p,644b,1894s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,17n,52p,648b,1896s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1092,11 +1225,13 @@ amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Base_designs.pdf (17 pages, 689972 bytes).
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Base_designs.pdf (28 pages, 975719 bytes).
 PDF statistics:
- 671 PDF objects out of 1000 (max. 8388607)
- 426 compressed objects within 5 object streams
- 145 named destinations out of 1000 (max. 500000)
- 424 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 970 PDF objects out of 1000 (max. 8388607)
+ 662 compressed objects within 7 object streams
+ 224 named destinations out of 1000 (max. 500000)
+ 635 words of extra memory for PDF output out of 10000 (max. 10000000)
 
