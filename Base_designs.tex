@@ -433,7 +433,7 @@ Preview of the webserver created:
 
 Here the generic driver fpgagen is used as an example, however the use of a different driver can lead to various requirements: arguments, data type, or several functions. Some specific cases will be treated in the next sections. In the other cases, refer to the /oscimpDigital/lib/my\_lib.h library files, or the oscimpDigital documentation: \href{[https://github.com/oscimp/oscimpDigital/tree/master/doc]}{https://github.com/oscimp/oscimpDigital/tree/master/doc}
 \newline \newline
-A webserer generator is available in the /oscimpDigital/app/tools/webserver\_generator repository, and build a standard webserver using the same My\_super\_design.xml file than the one used by the module generator :
+A webserver generator is available in the /oscimpDigital/app/tools/webserver\_generator repository, and build a standard webserver using the same My\_super\_design.xml file than the one used by the module generator :
 
  \begin{lstlisting}[language=bash]
 ./webserver_generator.py My_super_design.xml
@@ -823,7 +823,7 @@ IPs configuration in this example:
 
 \begin{figure}[!h!tb]
 	\begin{center}
-		\includegraphics[width=14cm]{figures/ampl_mod_webserver.png}
+		\includegraphics[width=14cm]{webserver/2020-01-13-104008_907x265_scrot.png}
 		\caption{Screenshot of the sine perturbation part of the webserver.}
 		\label{fig:amplModWs}
 	\end{center}
@@ -1041,7 +1041,7 @@ The FIR (Finite Impulse Response) filter has the role of filter with a number of
 
 \subsection{Calculation of the coefficients}
 
-The number of coefficients and their values determine the transfer function of the FIR. Therefore the coefficient must be calculated according to the situation. Also, the coefficients must be integers with a size determined in the FIR block, by default and in our case on $16~bits$. 
+The number of coefficients and their values determine the transfer function of the FIR. Therefore the coefficient must be calculated according to the situation. Also, the coefficients must be integers with a size determined in the FIR block, by default and in our case on $16~bits$ including one bit dedicated to the sign. 
 \newline\newline
 To compute the FIR coefficients, octave proposes the signal package\footnote{https://octave.sourceforge.io/signal/index.html} with the function fir1\footnote{https://octave.sourceforge.io/signal/function/fir1.html} that allows to design either lowpass, highpass, bandpass or bandstop filters. First, load the signal package of octave:
 
@@ -1061,22 +1061,22 @@ COEFF = fir1(n, w, type)
 
 With $n$ the order of the filter, resulting in $n+1$ coefficients, $w$ the normalized cutoff frequency(ies), and $type$ the type of the filter "low", "high", "stop" or "pass". 
 
-For example, the calculation of $10$ coefficients ($9th$ order filter) on $16~bits$ ($\times 2^{16}$) for a lowpass filter with a cutoff frequency at the half range ($0.5$), gives the following output: 
+For example, the calculation of $10$ coefficients ($9th$ order filter) on $16~bits$ ($\times 2^{15}$, without the bit dedicated to the sign) for a lowpass filter with a cutoff frequency at the half range ($0.5$), gives the following output: 
 
 \vspace{-0.1cm}
 \begin{lstlisting}
-octave:2> COEFF = transpose(int16(fir1(9,0.5)*2**16)))
+octave:2> COEFF = transpose(int16(fir1(9,0.5)*2**15))
 COEFF =
-257
--793
--2674
-7551
-28428
-28428
-7551
--2674
--793
-257
+128
+-397
+-1337
+3775
+14214
+14214
+3775
+-1337
+-397
+128
 \end{lstlisting}
 \vspace{+0.5cm}
 
@@ -1087,13 +1087,13 @@ Filter of $54th$ order. The cutoff frequency of $3~MHz$ is calculated on the bas
 
 \vspace{-0.1cm}
 \begin{lstlisting}
-octave:2> figure(1); freqz(int16(fir1(54,0.048)*2**16),1,1024,125e6)
+octave:2> figure(1); freqz(int16(fir1(54,0.048)*2**15),1,1024,125e6)
 \end{lstlisting}
 \vspace{-0cm}
 
 \begin{figure}[!h!tb]
 	\begin{center}
-		\includegraphics[width=12cm,trim={1.5cm 6.9cm 1.5cm 7cm}, clip]{curves/lp55co.pdf}
+		\includegraphics[width=10.5cm,trim={1.5cm 6.9cm 1.5cm 7cm}, clip]{curves/lp55co.pdf}
 		\caption{Lowpass filter at a $3~MHz$ cutoff frequency with $55$ coefficients.}
 		\label{curv:LP}
 	\end{center}
@@ -1106,7 +1106,7 @@ The effect of the number of coefficient can be seen by designing the same fir wi
 
 \vspace{-0.1cm}
 \begin{lstlisting}
-octave:3> figure(2); freqz(int16(fir1(14,0.048)*2**16),1,1024,125e6)
+octave:3> figure(2); freqz(int16(fir1(14,0.048)*2**15),1,1024,125e6)
 \end{lstlisting}
 \vspace{-0cm}
 
@@ -1125,7 +1125,7 @@ Example of syntax for the designing of a more exotic filter. Here a filter with 
 
 \vspace{-0.1cm}
 \begin{lstlisting}
-octave:4> figure(3); freqz(int16(fir1(54,[0.08 0.4 0.64 0.8],'stop')*2**16),1,1024,125e6)
+octave:4> figure(3); freqz(int16(fir1(54,[0.08 0.4 0.64 0.8],'stop')*2**15),1,1024,125e6)
 \end{lstlisting}
 \vspace{-0cm}
 
@@ -1159,14 +1159,14 @@ def fir_send_confSigned(basename, nbFir,fileCoeff, coeffSize):
 \vspace{0.6cm}
 
 Where coeffFile is a data file where the FIR coefficients are stored in column, and coeffSize the number of coefficients mentioned in the FIR block and contained in coeffFile.
-Then an example of python script to load one FIR with $55$ coefficients stored in the My\_FIR\_coefficients.dat file is :
+Then an example of python script to load one FIR with $N$ coefficients stored in the My\_FIR\_coefficients.dat file is :
 \vspace{+0.8cm}
 \begin{lstlisting}[language=Python]
 #!/usr/bin/env python
 
 import liboscimp_fpga
 
-liboscimp_fpga.fir_send_confSigned('/dev/MY_FIR_FILE', 'My_FIR_coefficients.dat', 55)
+liboscimp_fpga.fir_send_confSigned('/dev/MY_FIR_FILE', 'My_FIR_coefficients.dat', N)
 \end{lstlisting}
 \vspace{0.5cm}
 
@@ -1204,7 +1204,7 @@ A demodulation in amplitude or frequency/phase can be performed using the scheme
 	\end{tikzpicture} 
 \end{center}
 
-The filtering is performed using a FIR, explication garder 1 bande latérale...
+The FIR is configured as a lowpass filter, to reject mainly the sum frequency component after mixing.
 The block diagram corresponding to this scheme is presented in fig.\ref{fig:demod}.
 
 \begin{figure}[h!tb]
@@ -1218,7 +1218,7 @@ The block diagram corresponding to this scheme is presented in fig.\ref{fig:demo
 \vspace{-0.3cm}
 \subsection{IP configuration}
 
-IPs configuration in this example:
+The IPs configuration in this example is given in the following table :
 
 \begin{center}
 	\begin{tabular}{|>{\centering\arraybackslash}m{.3\linewidth} | >{\centering\arraybackslash}m{.3\linewidth} |}
@@ -1234,12 +1234,14 @@ IPs configuration in this example:
 		\hline
 		&COEFF Size: $16~bits$\\&Data In size: $14~bits$\\demod\_fir& Data Out size: $32~bits$\\&Decim Factor: $1$\\&Nb COEFF: $55$\\
 		\hline
-		shiftReal\_0&Data in size: $32~bits$ \newline Data out size: $19~bits$\\
+		shiftReal\_0&Data in size: $32~bits$ \newline Data out size: $18~bits$\\
 		\hline
-		expanderReal\_0&Data in size: $19~bits$ \newline Data out size: $14~bits$\\
+		expanderReal\_0&Data in size: $18~bits$ \newline Data out size: $14~bits$\\
 		\hline
 	\end{tabular}
 \end{center}
+\vspace{0.2cm}
+The FIR coefficients used in this section are the one calculated for the $55$ coefficients lowpass filter given at the previous section. Then the data sizes assigned to the shifter and expander blocks, are chosen to maximize the range of the output signal for a maximum input amplitude. Those parameters must also be adapted depending on the FIR coefficients to avoid an overflow. In the case the block design must remain adapted to several situations, a dynamic shifter can be used instead of the succession shifter + expander. It allows choosing from the webserver the beginning of the $14~bits$ output word among the $32$ output bits of the FIR, and therefore choosing the output range. 
 
 \vspace{0.2cm}
 
@@ -1261,13 +1263,109 @@ To make small review of the behavior of this demodulation setup, we display here
 
 \begin{itemize}
 	\setlength\itemsep{-0.2cm}
-	\item Demodulation of an unmodulated sine signal 
-	\item Mix of a sine signal and the demodulation signal (i.e. not a demodulation)
+	\item Mix of two sine signal (i.e. not a demodulation)
+	\item Demodulation of an unmodulated sine signal
 	\item Amplitude demodulation
 	\item Frequency demodulation
 \end{itemize}
 
+\underline{Mix of two sine signal}\newline
+
+A first test that can be done with this setup, is the mixing of two sine signal. The beatnote of the two signals shows the range of the output signal. If the output signal is too weak or if there is an overflow, then the data sizes of the expander and shifter blocks must be changed.\newline
+
+
+\underline{Demodulation of an unmodulated sine signal}\newline
+
+The type of demodulation depends on the phase shift between the two signals. To show the effect of this phase shift on the demodulated signal, we show here the demodulation of an unmodulated sine signal. In this example the input is a simple sine signal at $40~MHz$, thus the demodulation frequency is set to $40~MHz$. The phase offset of the demodulation signal allows changing the phase shift between the two signals. Then the output signal is a direct signal whose amplitude depend on the phase shift between the two signals.
+\newline\newline
+First, with a demodulation phase offset of $1550$, the signals are \textbf{in phase}. Then the amplitude of the output signal is maximum:
+
+\begin{figure}[!h!tb]
+	\begin{center}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/demods1.pdf}
+		\caption{The carrier and the demodulation signal are in phase.}
+		\label{curv:demodsine1}
+	\end{center}
+\end{figure}
+
+Secondly, with a demodulation phase offset of $3600$, the signals are \textbf{in antiphase}. Then the amplitude of the output signal is minimum:
+\newline
+
+\begin{figure}[!h!tb]
+	\begin{center}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/demods2.pdf}
+		\caption{The carrier and the demodulation signal are in antiphase.}
+		\label{curv:demodsine2}
+	\end{center}
+\end{figure}
+
+Finally, with a demodulation phase offset of $2500$, the signals are \textbf{in quadrature}. Then the amplitude of the output signal is zero:
+
+\begin{figure}[!h!tb]
+	\begin{center}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/demods3.pdf}
+		\caption{The carrier and the demodulation signal are in quadrature.}
+		\label{curv:demodsine3}
+	\end{center}
+\end{figure}
+
+
+As a reminder, the phase offset allows a phase shift of $\pm 4\pi$, i.e. approximately $2048~arb.~unit$ between the "in phase" and "in antiphase" situations. The phase offsets mentioned above allows verifying that. However those phase offsets does not always correspond to the situations described, since the nco has an arbitrary phase. Therefore, it may be adjusted each time the nco status is modified. This point also applies to the input oscillator. 
+\newline\newline
+\underline{Amplitude demodulation}\newline\newline
+
+For the amplitude demodulation, the carrier and the demodulation signal must be in phase. Here we use a carrier at $10~MHz$, and the modulating signal is a sine function at $50~kHz$, and a modulation depth of $50\%$:
+
+\begin{figure}[!h!tb]
+	\begin{center}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/demodampl.pdf}
+		\caption{Amplitude demodulation.}
+		\label{curv:demodampl}
+	\end{center}
+\end{figure}
+\vspace{-0.8cm}
+As it is visible on the fig.\ref{curv:demodampl}, a slight delay is visible between the input and the demodulated signal. This is due to the signal processing in the FPGA. 
+\vspace{-0.1cm}
+\newline\newline
+\vspace{-0.1cm}
+\underline{Phase demodulation}\newline\newline
+For the phase demodulation, the carrier and the demodulation signal must be in quadrature In this example the carrier frequency is $10~MHz$, and the modulating signal is a square signal at $50~kHz$ with a deviation of $50^\circ$:
+
+\begin{figure}[!h!tb]
+	\begin{center}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/demodphcar.pdf}
+		\caption{Phase demodulation.}
+		\label{curv:demodph}
+	\end{center}
+\end{figure}
+
+In this figure, only the transition between the two levels of the square is visible, at the time $-410~ns$ for the input signal and around $0~s$ for the output signal. This shows the delay due to the signal processing in the FPGA. In this example the delay is mostly due to the FIR, since it requires $55$ cycles to work, i.e. the number of coefficients of the FIR.
+
 \subsection{Unexpected output}
+
+\section{Monitoring}\label{sect:Monitoring}
+
+In this section we show an example of use of the Data2Ram block, used to monitor data. 
+\begin{center}
+\begin{tikzpicture}
+\node[draw, rectangle, minimum size=1.5cm] (dat) {Data2Ram};
+\node[draw, rectangle, minimum size=.6cm, left of=dat, xshift=-1.2cm, yshift=+.4cm] (plus1) {$\sum~2^n$};
+\draw [->,>=stealth, line width=1pt] ([xshift=-.65cm,yshift=-.15cm] plus1.north east) -- ([xshift=-.65cm,yshift=+.15cm] plus1.south east);
+\node[draw, rectangle, minimum size=.6cm, left of=dat, xshift=-1.2cm,  yshift=-.4cm] (plus2) {$\sum~2^n$};
+\draw [->,>=stealth, line width=1pt] ([xshift=-.65cm,yshift=-.15cm] plus2.north east) -- ([xshift=-.65cm,yshift=+.15cm] plus2.south east);
+%\node[draw, rectangle, minimum size=.6cm, left of=dat, left of=dat, yshift=+.4cm] (plus1) {{\color{OliveGreen}$+$}};
+%\node[above of=plus1, yshift=-.2cm] (c1) {\textbf{{\color{OliveGreen}Offset\_1}}};
+%\node[draw, rectangle, minimum size=.6cm, left of=dat, left of=dat, yshift=-.4cm] (plus2) {{\color{OliveGreen}$+$}};
+%\node[below of=plus2, yshift=+.2cm] (c2) {\textbf{{\color{OliveGreen}Offset\_2}}};
+
+\node[left of=plus1, xshift=-0.7cm] (i1) {in 1};
+\node[left of=plus2, xshift=-0.7cm] (i2) {in 2};
+\draw [->,>=stealth,line width=2pt,blue] (plus1) -- ([yshift=-.35cm] dat.north west);
+\draw [->,>=stealth,line width=2pt,blue] (plus2) -- ([yshift=+.35cm]dat.south west);
+\draw [->,>=stealth,line width=2pt,blue] (i1) -- (plus1);
+\draw [->,>=stealth,line width=2pt,blue] (i2) -- (plus2);
+\end{tikzpicture} 
+\end{center}
 
 \end{document}
 
