@@ -133,7 +133,7 @@ Regardless of the presented functions, it's obviously better to optimize the dyn
 \end{tikzpicture}  \\
 
 \hline
-\includegraphics[width=4.6cm,trim={1cm 9.5cm 1cm 8.5cm},clip]{figures/mixer.pdf} &Mixer& 
+\includegraphics[width=4.6cm,trim={1cm 9.5cm 1cm 8.5cm},clip]{figures/mixer.pdf} &Mixer, multiplier.& 
 \begin{tikzpicture}
 \node [circle, draw ,minimum size=.6cm] (mix) {};
 \draw [-] (mix.south west) -- (mix.north east);
@@ -662,7 +662,7 @@ Then the modulation depth is $h=\frac{AM\_ampl}{AM\_depth}$. Thereafter:
 
 \begin{figure}[h!tb]
 	\begin{center}
-		\includegraphics[width=14cm,trim={2cm 5cm 2cm 14cm}, clip]{design/mod_ampl1.pdf}
+		\includegraphics[width=14cm,trim={1.8cm 6cm 1cm 13cm}, clip]{design/mod_ampl1.pdf}
 		\caption{Part of the block diagram for this amplitude modulation.}
 		\label{fig:mod_ampl1}
 	\end{center}
@@ -678,17 +678,17 @@ IPs configuration in this example:
 		\hline
 		IP & Configuration \\
 		\hline
-		& Counter size: $40~bits$\\ nco\_counter &Data size: $16~bits$\\ &Lut size: $12~bits$ \\
+		& Counter size: $40~bits$\\ AMo\_nco &Data size: $16~bits$\\ &Lut size: $12~bits$ \\
 		\hline
-		axi\_to\_dac&Data size: $16~bits$ \\
+		AM\_ampl&Data size: $16~bits$ \\
 		\hline
-		mixer\_sin\_1&Data in/out size: $16~bits$ \newline Nco\_size: $16~bits$ \\
+		AM\_mixer&Data in/out size: $16~bits$ \newline Nco\_size: $16~bits$ \\
 		\hdashline
-		mixer\_sin\_2&Data in/out size: $14~bits$ \newline Nco\_size: $16~bits$ \\
+		multiplierReal&Input data1 size: $14~bits$ \newline Input data2 size: $16~bits$\newline Output data size: $14~bits$ \\
 		\hline
-		& Data in size: $16~bits$\\add\_const\_real & Data out size: $16~bits$\\ &Format: Signed \\
+		& Data in size: $16~bits$\\AM\_depth & Data out size: $16~bits$\\ &Format: Signed \\
 		\hline
-		convert$\mathbb{C}$to$\mathbb{R}$\_1&Data size: $14~bits$\\
+		convert$\mathbb{C}$to$\mathbb{R}$\_1&Data size: $16~bits$\\
 		\hline
 	\end{tabular}
 \end{center}
@@ -1037,7 +1037,7 @@ Unexpected outputs or a lack of signal can have several origins. Here is a non-e
 
 \section{Filtering}\label{sect:filtering}
 
-The FIR (Finite Impulse Response) filter has the role of filter with a number of coefficients that is configurable during the creation of a design. Similarly to the mean block that makes a moving average, the FIR has a decimation option. The decimation is performed before the filtering and slows the data flow. To learn more about the FIR, visit: https://une\_super\_ref.com/
+The FIR (Finite Impulse Response) filter has the role of filter with a number of coefficients that is configurable during the creation of a design. Similarly to the mean block that makes a moving average, the FIR has a decimation option. The decimation is performed before the filtering and slows the data flow. To learn more about the FIR, visit: https://github.com/oscimp/oscimpDigital/tree/master/doc/tutorials/redpitaya/4-FIR
 
 \subsection{Calculation of the coefficients}
 
@@ -1345,7 +1345,8 @@ In this figure, only the transition between the two levels of the square is visi
 
 \section{Monitoring}\label{sect:Monitoring}
 
-In this section we show an example of use of the Data2Ram block, used to monitor data. 
+In this section we show an example of use of the dataReal\_to\_ram block, used to monitor data. Basically monitoring a data flow only requires the dataReal\_to\_ram block, however we show a setup where the meanReal block is placed upstream to decimate/slow down the flow. The scheme is presented below:
+ 
 \begin{center}
 \begin{tikzpicture}
 \node[draw, rectangle, minimum size=1.5cm] (dat) {Data2Ram};
@@ -1353,11 +1354,6 @@ In this section we show an example of use of the Data2Ram block, used to monitor
 \draw [->,>=stealth, line width=1pt] ([xshift=-.65cm,yshift=-.15cm] plus1.north east) -- ([xshift=-.65cm,yshift=+.15cm] plus1.south east);
 \node[draw, rectangle, minimum size=.6cm, left of=dat, xshift=-1.2cm,  yshift=-.4cm] (plus2) {$\sum~2^n$};
 \draw [->,>=stealth, line width=1pt] ([xshift=-.65cm,yshift=-.15cm] plus2.north east) -- ([xshift=-.65cm,yshift=+.15cm] plus2.south east);
-%\node[draw, rectangle, minimum size=.6cm, left of=dat, left of=dat, yshift=+.4cm] (plus1) {{\color{OliveGreen}$+$}};
-%\node[above of=plus1, yshift=-.2cm] (c1) {\textbf{{\color{OliveGreen}Offset\_1}}};
-%\node[draw, rectangle, minimum size=.6cm, left of=dat, left of=dat, yshift=-.4cm] (plus2) {{\color{OliveGreen}$+$}};
-%\node[below of=plus2, yshift=+.2cm] (c2) {\textbf{{\color{OliveGreen}Offset\_2}}};
-
 \node[left of=plus1, xshift=-0.7cm] (i1) {in 1};
 \node[left of=plus2, xshift=-0.7cm] (i2) {in 2};
 \draw [->,>=stealth,line width=2pt,blue] (plus1) -- ([yshift=-.35cm] dat.north west);
@@ -1366,6 +1362,95 @@ In this section we show an example of use of the Data2Ram block, used to monitor
 \draw [->,>=stealth,line width=2pt,blue] (i2) -- (plus2);
 \end{tikzpicture} 
 \end{center}
+
+The block diagram corresponding to this scheme is as follows:
+
+\begin{figure}[h!tb]
+	\begin{center}
+		\includegraphics[width=15cm,trim={4cm 5cm 4cm 18cm}, clip]{design/data2ramMoy.pdf}
+		\caption{Part of the block diagram for monitoring with the data2ram block.}
+		\label{fig:data2ram}
+	\end{center}
+\end{figure}
+
+For an average/decimation $\geq ~2$, this configuration results in spectral aliasing and is a disadvantage when used without filtering. However when the useful signal spreads on a shorter range than the spectral range available, it allows monitoring the data with more points than with a full range. 
+
+\vspace{0.0cm}
+\subsection{IP configuration}
+he IPs configuration in this example is given in the following table :
+
+\begin{center}
+	\begin{tabular}{|>{\centering\arraybackslash}m{.3\linewidth} | >{\centering\arraybackslash}m{.3\linewidth} |}
+		\hline
+		dataReal\_to\_ram&Data size: $16~bits$ \newline Data format: signed\newline NB input: $2$\newline Nb Sample: $=~K$\\
+		\hline
+		meanReal\_ch1/2&Input Data size: $14~bits$ \newline Output Data Size: $16~bits$\newline Nb Accum: $=~2^n~bits$\newline Shift: $=~n~bits$\\
+		\hline
+	\end{tabular}
+\end{center}
+\vspace{0.2cm}
+
+The number of samples of the dataReal\_to\_ram block, and the shift and number of accumulation of the meanReal blocks can vary upon the situations. Some examples will be listed in the expected output section (\ref*{sect:expOMon}). 
+
+\subsection{Data reading}
+
+The data stored in the data\_to\_ram buffer are C signed shorts, over $2~bytes$. With a data\_to\_ram configured with $2$ inputs and $K$ samples, this means the buffer contains ${4\times K~bytes}$. An example of reading of the data\_to\_ram block with a C script is presented here:
+\newline
+https://github.com/oscimp/oscimpDigital/tree/master/doc/tutorials/redpitaya/3-PLPS
+\newline\newline
+In python the C structs must be converted to a tuple using the package struct. In the following example we read, convert and deinterleave the two first values of each channel, stored in the buffer:
+
+\begin{lstlisting}[language=Python]
+import struct
+
+with open('/dev/data', 'rb') as f:
+			short_data = f.read(8) # read the 8 first data of the buffer
+			interleaved_channels = struct.unpack('4h', short_data) #4h means 4 signed shorts
+			ch1=interleaved_channels[0::2] #deinterleave: first input
+			ch2=interleaved_channels[1::2] #deinterleave: second input
+\end{lstlisting}
+\vspace{0.6cm}
+
+Which gives as an example of outputs:
+
+
+\begin{lstlisting} [language=Python]
+short_data = b'R\rz\xff\xb9\x0e\x87\xff' #bytes
+interleaved_channels = (3410, -134, 3769, -121) #tuple
+ch1 = (3410, 3769) #tuple
+ch2 = (-134, -121) #tuple
+\end{lstlisting}
+\vspace{0.6cm}
+
+Obviously, the number of values read per channel can go up to the $K$ samples mentioned in the data\_to\_ram block. 
+
+\subsection{Data monitoring}
+
+A live monitoring of the data\_to\_ram data can be performed on a distant computer of the local network by:
+\begin{enumerate}
+	\item Sending the data through the local network using a ZeroMQ protocol\footnote{https://zeromq.org/},
+	\item Receiving and plotting the data using GNU Radio Companion\footnote{https://wiki.gnuradio.org/} or any script.
+\end{enumerate}
+
+The sending of the data using the ZeroMQ protocol is performed in the embedded linux. Thus it requires to include the ZMQ tools to the buildroot. 
+
+\begin{lstlisting}[language=Python]
+#!/usr/bin/env python
+
+import zmq, time
+
+context = zmq.Context()
+sock = context.socket(zmq.PUB)
+sock.bind("tcp://*:9901")
+
+while True:
+			time.sleep(0.05)
+			with open('/dev/data', 'rb') as f:
+						sock.send(f.read(8192))
+\end{lstlisting}
+\vspace{0.6cm}
+
+\subsection{Expected output}\label{sect:expOMon}
 
 \end{document}
 
