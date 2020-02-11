@@ -23,6 +23,7 @@ anchorcolor = blue]{hyperref}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{multicol}
 \usepackage{tikz}
+\usetikzlibrary{calc,trees,patterns,positioning,decorations.pathreplacing,shapes}
 \usepackage{array}
 \usepackage{comment}
 \graphicspath{{./figures/}}
@@ -178,7 +179,7 @@ Expander: crop end of word, expand beginning of word. Shift: crop beginning of w
 \draw [->,>=stealth,line width=2pt,blue] (exp) -- (o);
 \end{tikzpicture} 
 \begin{tikzpicture}
-\node[draw, rectangle, minimum size=.6cm] (exp) {\textbf{{\color{OliveGreen}sh-dyn}}};
+\node[draw, rectangle, minimum size=.6cm] (exp) {\textbf{{\color{OliveGreen}dyn-sh}}};
 \node[xshift=-1.5cm] (i) {in};
 \node[xshift=+1.65cm] (o) {out};
 \draw [line width=2pt,blue] (i) -- (exp);
@@ -678,7 +679,7 @@ IPs configuration in this example:
 		\hline
 		IP & Configuration \\
 		\hline
-		& Counter size: $40~bits$\\ AMo\_nco &Data size: $16~bits$\\ &Lut size: $12~bits$ \\
+		& Counter size: $40~bits$\\ AM\_nco &Data size: $16~bits$\\ &Lut size: $12~bits$ \\
 		\hline
 		AM\_ampl&Data size: $16~bits$ \\
 		\hline
@@ -1343,6 +1344,11 @@ In this figure, only the transition between the two levels of the square is visi
 
 \subsection{Unexpected output}
 
+\begin{itemize}
+	\setlength\itemsep{-0.0cm}
+	\item The demodulation is not perfect, or the modulation and demodulation frequency seems to be slightly different: \newline \hspace*{1cm}  \textit{Make sure your modulating and demodulating devices are referenced on the same oscillator.}
+\end{itemize}
+
 \section{Monitoring}\label{sect:Monitoring}
 
 In this section we show an example of use of the dataReal\_to\_ram block, used to monitor data. Basically monitoring a data flow only requires the dataReal\_to\_ram block, however we show a setup where the meanReal block is placed upstream to decimate/slow down the flow. The scheme is presented below:
@@ -1368,7 +1374,7 @@ The block diagram corresponding to this scheme is as follows:
 \begin{figure}[h!tb]
 	\begin{center}
 		\includegraphics[width=15cm,trim={4cm 5cm 4cm 18cm}, clip]{design/data2ramMoy.pdf}
-		\caption{Part of the block diagram for monitoring with the data2ram block.}
+		\caption{Part of the block diagram for monitoring with the data\_to\_ram block.}
 		\label{fig:data2ram}
 	\end{center}
 \end{figure}
@@ -1382,6 +1388,8 @@ he IPs configuration in this example is given in the following table :
 \begin{center}
 	\begin{tabular}{|>{\centering\arraybackslash}m{.3\linewidth} | >{\centering\arraybackslash}m{.3\linewidth} |}
 		\hline
+		IP & Configuration \\
+		\hline
 		dataReal\_to\_ram&Data size: $16~bits$ \newline Data format: signed\newline NB input: $2$\newline Nb Sample: $=~K$\\
 		\hline
 		meanReal\_ch1/2&Input Data size: $14~bits$ \newline Output Data Size: $16~bits$\newline Nb Accum: $=~2^n~bits$\newline Shift: $=~n~bits$\\
@@ -1392,7 +1400,7 @@ he IPs configuration in this example is given in the following table :
 
 The number of samples of the dataReal\_to\_ram block, and the shift and number of accumulation of the meanReal blocks can vary upon the situations. Some examples will be listed in the expected output section (\ref*{sect:expOMon}). 
 
-\subsection{Data reading}
+\subsection{Data reading}\label{sect:datareading}
 
 The data stored in the data\_to\_ram buffer are C signed shorts, over $2~bytes$. With a data\_to\_ram configured with $2$ inputs and $K$ samples, this means the buffer contains ${4\times K~bytes}$. An example of reading of the data\_to\_ram block with a C script is presented here:
 \newline
@@ -1424,33 +1432,405 @@ ch2 = (-134, -121) #tuple
 
 Obviously, the number of values read per channel can go up to the $K$ samples mentioned in the data\_to\_ram block. 
 
-\subsection{Data monitoring}
+\subsection{Data sending}\label{sect:dataSending}
 
 A live monitoring of the data\_to\_ram data can be performed on a distant computer of the local network by:
 \begin{enumerate}
-	\item Sending the data through the local network using a ZeroMQ protocol\footnote{https://zeromq.org/},
+	\setlength\itemsep{-0.1cm}
+	\item Sending the data through the local network using a ZeroMQ (ZMQ) protocol\footnote{https://zeromq.org/},
 	\item Receiving and plotting the data using GNU Radio Companion\footnote{https://wiki.gnuradio.org/} or any script.
 \end{enumerate}
 
-The sending of the data using the ZeroMQ protocol is performed in the embedded linux. Thus it requires to include the ZMQ tools to the buildroot. 
+In this example we use a publish-subscribe protocol, where the publisher is the embedded linux system of the board, and the subscriber is the monitoring system. The sending of the data is performed using the ZMQ protocol, thus it requires to include the ZMQ tools to the buildroot. The following script can be launched as a background task. The data of the /dev/data\_to\_ram file is read and sent through the local network, via the port 9901 of the local system, with the publish protocol of ZMQ:
 
+\vspace{-0.1cm}
 \begin{lstlisting}[language=Python]
 #!/usr/bin/env python
 
 import zmq, time
 
 context = zmq.Context()
-sock = context.socket(zmq.PUB)
-sock.bind("tcp://*:9901")
+sock = context.socket(zmq.PUB) #publisher socket type
+sock.bind("tcp://*:9901") #port 9901 of the local machine
 
 while True:
-			time.sleep(0.05)
-			with open('/dev/data', 'rb') as f:
-						sock.send(f.read(8192))
+			time.sleep(0.05) #be kind to the CPU, adapt it to the buffer delay
+			with open('/dev/data_to_ram', 'rb') as f:
+						sock.send(f.read(8192)) #read and send the 8192 data of the data_to_ram buffer
 \end{lstlisting}
-\vspace{0.6cm}
+\vspace{0.5cm}
 
+The sleep time in the loop can be adapted to the delay between the transmission of two buffers by the data\_to\_ram block. See the examples in section \ref*{sect:expOMon}. 
+
+\subsection{Data receiving}
+
+The reception of the data using the ZMQ subscribe protocol can be performed with the following script:
+
+\begin{lstlisting}[language=Python]
+import zmq, time, struct
+
+context = zmq.Context()
+sock = context.socket(zmq.SUB) #subscriber socket type
+sock.setsockopt(zmq.SUBSCRIBE, "".encode('utf-8'))
+sock.connect("tcp://192.168.0.215:9901") #connect to the port 9901 of the 192.168.0.215 machine
+
+received_data = sock.recv() #the data received remains to be converted, deinterleaved...
+\end{lstlisting}
+\vspace{0.5cm}
+
+Then the data remains to be processed.
+
+\subsection{Data monitoring}
+
+The reception of the data using the ZMQ subscribe protocol can also directly be achieved using GNU Radio Companion. The flow graph is as following: 
+\vspace{0.5cm}
+\begin{figure}[h!tb]
+	\begin{center}
+		\includegraphics[width=16cm,trim={0cm 32.85cm 39cm 0cm}, clip]{design/GNUflow.png}
+		\caption{Flow graph for the data monitoring.}
+		\label{fig:gnuradioflowgraph}
+	\end{center}
+\end{figure}
+\vspace{0cm}
+
+The principle of the data processing is very similar to the data reading in section \ref{sect:datareading}: 
+
+\begin{enumerate}
+	\setlength\itemsep{-0cm}
+	\item ZQM SUB Source: subscribes to the sender at the address tcp://IP:PORT (in this example tcp://192.168.0.215:9901).
+	\item Throttle: regulates the flow. Type: short.
+	\item Short To Float: converts short data into float data.
+	\item Deinterleave: separates the two channels received. IO Type: float. Num Streams: 2.
+	\item QT GUI Frequency Sink: plots the power spectrum density on a data set (FFT Size) that can be adapted to the data\_to\_ram configuration. Type: float. Number of Inputs: 2.
+	\item QT GUI Time Sink: plots a data set (Number of Points) in the time domain. Can also be adapted to the data\_to\_ram configuration. Type: float. Number of Inputs: 2.
+\end{enumerate}
+\vspace{0.4cm}
+The variable block is used here to mention the sampling rate $samp\_rate$ of the data\_to\_ram, since it is used by several blocks. Its value depend on the average/decimation $n$ performed before the data\_to\_ram, that also divides the data flow. Thus for an initial sampling rate of $125~MHz$, we have $samp\_rate=125/n~MHz$.
+
+\vspace{0.cm}
 \subsection{Expected output}\label{sect:expOMon}
+\vspace{0.4cm}
+\underline{Reminder on the effect of the sampling rate:}\newline
+
+One would expect to monitor the data in the time domain with a satisfying resolution. However we should keep in mind that this resolution depends on the sampling rate with respect to the frequency/variations of the signal. This implies first that above the half Nyquist frequency, the signal is not reconstituted with a lot of point, but still can be interpolated. Secondly, if the input frequency is above the Nyquist frequency, there is spectral aliasing. In this situation the reconstituted signal can only be correctly interpreted with your a priori knowledge on the input signal. 
+\newline\newline
+Those points have an impact here since we propose to use the meanReal block that decimates the signal and divides the sampling rate, as mentioned in the section above. To highlight the pros and cons of this configuration, two situations are presented here: monitoring of a sine signal without averaging (i.e. sampling rate of $125~MHz$), and with an averaging of $2^{13}$ (i.e. sampling rate of $\simeq 15.26~kHz$).
+\newline\newline
+In both examples, the data is monitored with GNU Radio Companion, and no webserver is required. The signal in the first channel CH1 is a sine signal at $20~MHz$, and the signal in the second channel CH2 is a sine signal at $2~kHz$.
+\newline\newline
+\underline{No averaging}\newline
+
+Configurations in the block design: 
+\begin{itemize}
+	\setlength\itemsep{-0.2cm}
+	\item dataReal\_to\_ram: $K=16384$
+	\item meanReal\_ch1/2: $n=0$ (Nb Accum: $1~bit$, Shift: $0~bit$)
+\end{itemize}
+
+Then the time delay between two buffers is $\Delta t_{buffer}=\dfrac{16384\times 1}{125\cdot10^6}=1.31\cdot10^{-4}~s$. The loop time for the data sending (see section \ref{sect:dataSending} can be quite low. In this example we set it to $0.05~s$.
+\newline
+
+The data is then monitored with GNU Radio Companion. The blocks configuration is:
+\begin{itemize}
+	\setlength\itemsep{-0.2cm}
+	\item samp\_rate: $125MHz$
+	\item QT GUI Frequency Sink, FFT Size: up to $4096~points$
+	\item QT GUI Time Sink, Number of points: up to $2^{14}$
+	\item Update Period: $0.05~s$
+	\item Other parameters: up to you !
+\end{itemize}
+\vspace{0.4cm}
+
+We obtain the following results for the first (fig.\ref{fig:gnuNoMoych1}) and second (fig.\ref{fig:gnuNoMoych2}) channel:
+
+\begin{figure}[h!tb]
+	\begin{center}
+		\includegraphics[width=16cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/gnu/NoMch1.png}
+		\caption{First channel at $20~MHz$, no decimation.}
+		\label{fig:gnuNoMoych1}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[h!tb]
+	\begin{center}
+		\includegraphics[width=16cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/gnu/NoMch2.png}
+		\caption{Second channel at $2~kHz$, no decimation.}
+		\label{fig:gnuNoMoych2}
+	\end{center}
+\end{figure}
+
+
+The signal at $20~MHz$ is clearly visible in the time and frequency domains, although harmonics are also represented. However the signal at $2~kHz$ is not noticeable at all in the frequency domain, ant oversampled in the time domain. In this case the second example is more adapted.
+\newline\newline
+\underline{Averaging of $2^{13}$}\newline
+
+In this case the averaging is used to divide the sampling rate and reduce the spectral range. Then it is more adapted to lower frequencies. Configurations in the block design: 
+\begin{itemize}
+	\setlength\itemsep{-0.2cm}
+	\item dataReal\_to\_ram: $K=2048$
+	\item meanReal\_ch1/2: $n=13$ (Nb Accum: $8192~bit$, Shift: $13~bits$)
+\end{itemize}
+
+Then the time delay between two buffers is $\Delta t_{buffer}=\dfrac{2048\times 8192}{125\cdot10^6}=1.34\cdot10^{-1}~s$. Since this delay is higher than in the previous example, the loop time for the data sending is increased to $0.5~s$.
+\newline
+
+The blocks configuration in GNU Radio Companion is:
+\begin{itemize}
+	\setlength\itemsep{-0.2cm}
+	\item samp\_rate: $15.26~kHz$
+	\item QT GUI Frequency Sink, FFT Size: up to $2048~points$
+	\item QT GUI Time Sink, Number of points: up to $2^{11}$
+	\item Update Period: $0.5~s$
+	\item Other parameters: up to you !
+\end{itemize}
+
+The results obtained are presented in fig.\ref{fig:gnuMoych1} and fig.\ref{fig:gnuMoych2}:
+
+\begin{figure}[h!tb]
+	\begin{center}
+		\includegraphics[width=16cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/gnu/Mch1.png}
+		\caption{First channel at $20~MHz$, with decimation.}
+		\label{fig:gnuMoych1}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!tb]
+	\begin{center}
+		\includegraphics[width=16cm,trim={0cm 0cm 0cm 0cm}, clip]{scope/gnu/Mch2.png}
+		\caption{First channel at $2~kHz$, with decimation.}
+		\label{fig:gnuMoych2}
+	\end{center}
+\end{figure}
+
+This time the signal at $20~MHz$ is severely undersampled and can not be interpreted in the time domain. However the signal at $2~kHz$ is this time visible with a sufficient resolution both in the time and the frequency domains.  
+
+\subsection{Unexpected output}
+
+
+
+\section{Example to a control loop}
+
+An example of control loop is presented here. Although it can be used both for amplitude and phase locked loops, only a phase locked loop (PLL) is shown here.  
+
+In this example the PLL aims at compensating the phase fluctuations that occur during the transfer of an ultra stable laser (USL), through an optical fiber. The scheme presenting the operating principle and all the RF processing is presented below:
+
+\vspace{0.4cm}
+\hspace{-1.5cm}
+\begin{tikzpicture}
+\tikzstyle{mirror}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+
+
+\node[draw, rectangle, line width=1.5pt] (laser) {USL};
+
+\node[draw=none, right of=laser, xshift=-.5em] (l21) {$|$};
+\node[draw=none, above, yshift=-.3em] (l21l) at (l21.north) {$\lambda/2$};
+
+\node[draw, rectangle, text width=0.2cm, text height=0.2cm, xshift=1em, right of=laser] (pbs1) {};
+\draw [-] (pbs1.south east) -- (pbs1.north west);
+\draw [-,line width=2pt, red] (laser) -- (pbs1);
+
+\node[draw=none, right of=pbs1, xshift=-1.2em] (l41) {$|$};
+\node[draw=none, above, yshift=-.3em] (l41l) at (l41.north) {$\lambda/4$};
+
+\node[draw=none, below of=pbs1, rotate=90, xshift=1.2em] (l42) {$|$};
+\node[draw=none, left, xshift=.3em] (l42l) at (l42.north) {$\lambda/4$};
+
+\node [mirror, below of=pbs1] (M1) {};
+\draw [-, line width=1pt] (M1.north east) -- (M1.north west);
+\draw [-,line width=2pt, red] (pbs1) -- (M1);
+
+
+\node [circle, draw, inner sep=0pt,minimum size=7.5pt, fill=black, above of=pbs1] (pd1) {};
+\draw (pd1) ++(0:-.27) arc (0:-180:-.27);
+\node[draw=none, left, xshift=-0.2em, yshift=0.2em] at (pd1.west) {Photodiode};
+
+\draw [-,line width=2pt, red] (pbs1) -- (pd1);
+\node[draw, rectangle, right of=pbs1] (fin) {};
+\draw [-,line width=2pt, red] (pbs1) -- (fin);
+
+
+\node[draw, rectangle, xshift=14.35em, yshift=0em, right of=fin] (aom1) {AOM};
+\draw [-,line width=2pt, red] ([xshift=8em] fin.center)+(-0.5cm,0) arc (270:360+270:0.3) -- ([xshift=8em] fin.center)+(-0.25cm,0) arc (270:360+270:0.3) -- ([xshift=8em] fin.center) arc (270:360+270:0.3) -- ([xshift=8em] fin.center)+(.25cm,0) arc (270:360+270:0.3) -- ([xshift=8em] fin.center)+(.5cm,0) arc (270:360+270:0.3);
+\draw [-,line width=2pt, red, rounded corners] (fin) -- ([xshift=4em] fin.center);
+\draw [-,line width=2pt, red] ([xshift=4em] fin.center) -- (aom1);
+\node[draw, rectangle, xshift=4em, yshift=2em, right of=aom1] (fm1) {FM};
+\draw [-,line width=2pt, red, rounded corners] (aom1) -| ([xshift=-3em] fm1.center) -- (fm1);
+\node [draw=none] at (fm1|-fin) (pd2) {};
+\draw [->,>=stealth,line width=2pt, red, rounded corners] (aom1) -| ([xshift=-3em, yshift=-2.5em] pd2.center) -- ([yshift=-2.5em]pd2.center);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\node[draw, rectangle, minimum size=.6cm, above of=pd1, yshift=2em] (plus1) {$+$};
+\node[draw=none, left of=plus1, xshift=-0.8em] {{\color{OliveGreen}adc\_offset}};
+
+
+\draw [->,>=stealth,line width=2pt,blue] ([yshift=0.3em] pd1.north) node [draw, black, yshift=1em, rotate=-90, fill, signal]{} -- (plus1);
+
+\node[draw, circle, minimum size=0.6cm, yshift=0.5em, above of=plus1] (mix1) {};
+\draw [-] (mix1.south west) -- (mix1.north east);
+\draw [-] (mix1.south east) -- (mix1.north west);
+
+\draw [->,>=stealth,line width=2pt,blue] (plus1) -- (mix1);
+
+\node[draw, rectangle, minimum size=0.6cm, left of=mix1, xshift=-0.6em] (dat) {$\mathbb{C}$2$\mathbb{R}$};
+
+\node [circle, draw ,minimum size=.7cm, left of=dat, xshift=-0.7em] (osc1) {};
+\draw ([xshift=-0.3cm] osc1.center) sin ([xshift=-0.15cm, yshift=-0.15cm] osc1.center) cos (osc1.center) sin ([xshift=0.15cm, yshift=0.15cm] osc1.center) cos ([xshift=0.3cm] osc1.center);
+\node[draw=none, left of=osc1, xshift=-1.3em, yshift=0em] {{\color{OliveGreen}demod\_nco}};
+
+\draw [->,>=stealth,line width=2pt,blue] (dat) -- (mix1);
+\draw [->,>=stealth,line width=2pt,blue] (osc1) -- (dat);
+
+\node[draw, rectangle, minimum size=.6cm,  above of=mix1] (fir) {};
+\node[draw=none, left of=fir, xshift=-0.8em] {{\color{OliveGreen}demod\_fir}};
+\draw [-, line width=1pt, color=black!60!green, rounded corners] ([xshift=.05cm,yshift=-.2cm] fir.north west) -| ([xshift=-.2cm,yshift=+.2cm] fir.south east);
+\draw [->,>=stealth, line width=1pt, color=black!60!green] ([xshift=-.1cm,yshift=-.15cm] fir.north east) -- ([xshift=-.1cm,yshift=+.15cm] fir.south east);
+\draw [->,>=stealth,line width=2pt,blue] (mix1) -- (fir);
+
+\node[draw, rectangle, minimum size=.6cm, above of=fir, xshift=0em] (sh) {{\color{OliveGreen}dyn-sh}};
+\draw [->,>=stealth,line width=2pt,blue] (fir) -- (sh);
+
+\node[draw, rectangle, minimum size=.6cm, right of=sh, xshift=1em] (spl) {};
+\draw [-,line width=2pt,blue] (spl.west) -- (spl.center);
+\draw [-,line width=2pt,blue] (spl.center) -- ([yshift=-0.04cm] spl.north east);
+\draw [-,line width=2pt,blue] (spl.center) -- ([yshift=+0.04cm] spl.south east);
+\draw [-,>=stealth,line width=2pt,blue] (sh) -- (spl);
+
+\node[draw, rectangle, right of=spl, xshift=0em, yshift=0.27cm] (pi) {{\color{OliveGreen}PI}};
+
+\node[draw, rectangle, minimum size=.6cm, right of=spl, yshift=-2.5em] (plus1) {$\sum~2^n$};
+\draw [->,>=stealth, line width=1pt] ([xshift=-.65cm,yshift=-.15cm] plus1.north east) -- ([xshift=-.65cm,yshift=+.15cm] plus1.south east);
+
+\node[draw, rectangle, minimum size=0.8cm, below of=plus1, yshift=-0.5em, xshift=0em] (dat) {Data2Ram};
+
+\draw [->,>=stealth,line width=2pt,blue] ([yshift=0.04cm] spl.south east) -| (plus1);
+\draw [->,>=stealth,line width=2pt,blue] (plus1) -- (dat);
+
+\draw [->,>=stealth,line width=2pt,blue] ([yshift=-0.04cm] spl.north east) -- (pi);
+
+\node[draw, circle, minimum size=0.6cm, xshift=0em, right of=pi] (mix11) {};
+\draw [-] (mix11.south west) -- (mix11.north east);
+\draw [-] (mix11.south east) -- (mix11.north west);
+
+\draw [->,>=stealth,line width=2pt,blue] (pi) -- (mix11);
+
+\node[draw, rectangle, minimum size=.6cm, above of=mix11] (ax) {\textbf{$\lambda$}};
+\node[draw=none, above of=ax, xshift=-0.0em, yshift=-0.8em] {{\color{OliveGreen}PI\_range}};
+
+\draw [->,>=stealth,line width=2pt,blue] (ax) -- (mix11);
+
+\node[draw, rectangle, minimum size=.6cm, right of=mix11, xshift=0.1cm] (sh) {exp};
+\node[draw, rectangle, minimum size=.6cm, right of=sh, xshift=0.2cm] (exp) {sh$_1$};
+
+\node[draw, rectangle, minimum size=.6cm, right of=exp, xshift=0.1cm] (f0) {$+$};
+\node[draw=none, above of=f0, xshift=-0em, yshift=-0.8em] {{\color{OliveGreen}dds\_f0}};
+
+\draw [->,>=stealth,line width=2pt,blue] (mix11) -- (sh);
+\draw [->,>=stealth,line width=2pt,blue] (sh) -- (exp);
+\draw [->,>=stealth,line width=2pt,blue] (exp) -- (f0);
+
+\node[draw, rectangle, minimum size=.6cm, right of=f0, xshift=0.1cm] (sh2) {sh$_2$};
+\draw [->,>=stealth,line width=2pt,blue] (f0) -- (sh2);
+
+\node [circle, draw ,minimum size=.7cm, below of=sh2] (osc2) {};
+\draw ([xshift=-0.3cm] osc2.center) sin ([xshift=-0.15cm, yshift=-0.15cm] osc2.center) cos (osc2.center) sin ([xshift=0.15cm, yshift=0.15cm] osc2.center) cos ([xshift=0.3cm] osc2.center);
+\node[draw=none, right of=osc2, xshift=+0.8em] {{\color{OliveGreen}dds\_nco}};
+
+\node[draw, rectangle, minimum size=0.6cm, below of=osc2, yshift=0em] (dat2) {$\mathbb{C}$2$\mathbb{R}$};
+
+\draw [->,>=stealth,line width=2pt,blue] (sh2) -- (osc2);
+
+\node[draw, circle, minimum size=0.6cm, xshift=0em, below of=dat2] (mix12) {};
+\draw [-] (mix12.south west) -- (mix12.north east);
+\draw [-] (mix12.south east) -- (mix12.north west);
+
+\node[draw, rectangle, minimum size=.6cm, right of=mix12] (ax2) {\textbf{$\lambda$}};
+\node[draw=none, right of=ax2, xshift=0.8em] {{\color{OliveGreen}dds\_ampl}};
+
+\draw [->,>=stealth,line width=2pt,blue] (osc2) -- (dat2);
+\draw [->,>=stealth,line width=2pt,blue] (dat2) -- (mix12);
+\draw [->,>=stealth,line width=2pt,blue] (ax2) -- (mix12);
+
+\node[draw, rectangle, minimum size=.6cm, below of=mix12] (dac) {$+$};
+\node[draw=none, right of=dac, xshift=0.8em] {{\color{OliveGreen}dac\_offset}};
+
+\draw [->,>=stealth,line width=2pt,blue] (mix12) -- (dac);
+
+\draw [->,>=stealth,line width=2pt,blue] (dac) -- node [draw, black, yshift=1em, rotate=-90, fill, signal]{} (aom1);
+
+\end{tikzpicture}
+
+\vspace{0.5cm}
+The optical processing lays on the use of a Michelson interferometer that includes a first arm with a long optical fiber link, and a second arm much shorter. The second arm is kept as a reference, and is considered to have negligible phase fluctuations with respect to the ultra stable signal. The first arm is used to transfer the ultra stable signal, but is subject to external constraints and therefore undesirable phase fluctuations. A way to measure those phase fluctuations is first to modulate the ultra stable laser with a RF signal, using an acousto optic modulator (AOM). Secondly the phase fluctuation must be isolated. In this purpose, the modulated signal is reflected by a Faraday mirror (FM) placed at the end of the link, and sent back to the beginning of the link. The recombination between the modulated signal and the reference signal mainly represents the undesirable phase fluctuations. 
+
+Subsequently the RF signal is detected after recombination and demodulated in phase (see section \ref{sect:demod}) to extract an error signal that correspond to those phase fluctuations. Then the PI block generates a correction signal that is used to modulate the frequency of the NCO that drives the AOM. Thereby, the undesirable phase fluctuations are directly compensated by the AOM modulation on the transmitted ultra stable signal. 
+
+\subsection{IP configuration}
+The IPs configuration is given in the following table :
+
+\begin{center}
+	\begin{tabular}{|>{\centering\arraybackslash}m{.3\linewidth} | >{\centering\arraybackslash}m{.3\linewidth} |}
+		\hline
+		IP & Configuration \\
+		\hline
+		\hspace{0.65cm} adc\_offset \newline dac\_offset&Data in/out size: $14~bits$\\
+		\hdashline
+		dds\_f0& Data in/out size: $32~bits$\newline Unsigned\\
+		\hline
+		\hspace{0.55cm} demod\_nco \newline dds\_nco & Counter size: $40~bits$\newline Data size: $14~bits$\newline Lut size: $12~bits$\\
+		\hline
+		$\mathbb{C}$2$\mathbb{R}$& Data size: $14~bits$\\
+		\hline
+		multiplierReal& Input data1/2 size: $14~bits$\newline Output data size: $14~bits$\\
+		\hline
+		firReal& COEFF size: $16~bits$\newline Data in size: $14~bits$\newline Data out size: $32~bits$\newline Decimate Factor: $1$\newline Nb COEFF: $25$\\
+		\hline
+		dyn\_sh& Data in size: $32~bits$\newline Data out size: $14~bits$\newline Default Shift: $18~bits$\\
+		\hline
+		dupplReal& Data size: $14~bits$\\
+		\hline
+		meanReal&Input Data size: $14~bits$ \newline Output Data Size: $16~bits$\newline Nb Accum: $=128~bits$\newline Shift: $=7~bits$\\
+		\hline
+		dataReal\_to\_ram&Data size: $16~bits$ \newline Data format: signed\newline NB input: $1$\newline Nb Sample: $=16384$\\
+		\hline
+		\end{tabular}
+
+		\begin{tabular}{|>{\centering\arraybackslash}m{.3\linewidth} | >{\centering\arraybackslash}m{.3\linewidth} |}
+		\hline
+		IP & Configuration \\
+		\hline
+		PI&Data in/out size: $14~bits$ \newline I shift: $19~bits$ \newline I size: $18~bits$ \newline P shift: $13~bits$ \newline P size: $14~bits$ \\
+		\hline
+		\hspace{0.65cm} PI\_range \newline dds\_ampl& Data size: $14~bits$\\
+		\hline
+		exp& Data in size: $14~bits$ \newline Data out size: $20~bits$\\
+		\hline
+		sh$_1$& Data in size: $20~bits$ \newline Data out size: $32~bits$\\
+		\hdashline
+		sh$_2$& Data in size: $32~bits$ \newline Data out size: $40~bits$\\
+		\hline
+		\end{tabular}
+\end{center}
+\vspace{0.2cm}
+
+Here, the expander (exp) and shifter (sh$_1$) are used to roughly adapt the range of the correction for the application described above. Although the correction range can also be adjusted (more precisely) with the PI\_range variable, it is possible that depending on the application the values of the expander (exp) and shifter (sh$_1$) must be adapted.
+
+\subsection{Webserver configuration}
+
+In the following webserver, 
+\vspace{0cm}
+\begin{figure}[h!tb]
+	\begin{center}
+		\vspace{0.5cm}
+		\includegraphics[width=15cm,trim={0cm 0cm 0cm 0cm}, clip]{webserver/2020-02-11-154130_889x946_scrot.png}
+		\caption{Screenshot of the control loop webserver.}
+		\label{fig:pll_webserver}
+	\end{center}
+\end{figure}
+\vspace{0cm}
+
+\subsection{Expected output}
 
 \end{document}
 

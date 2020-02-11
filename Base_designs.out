@@ -33,5 +33,12 @@
 \BOOKMARK [1][-]{section.10}{Monitoring}{}% 33
 \BOOKMARK [2][-]{subsection.10.1}{IP configuration}{section.10}% 34
 \BOOKMARK [2][-]{subsection.10.2}{Data reading}{section.10}% 35
-\BOOKMARK [2][-]{subsection.10.3}{Data monitoring}{section.10}% 36
-\BOOKMARK [2][-]{subsection.10.4}{Expected output}{section.10}% 37
+\BOOKMARK [2][-]{subsection.10.3}{Data sending}{section.10}% 36
+\BOOKMARK [2][-]{subsection.10.4}{Data receiving}{section.10}% 37
+\BOOKMARK [2][-]{subsection.10.5}{Data monitoring}{section.10}% 38
+\BOOKMARK [2][-]{subsection.10.6}{Expected output}{section.10}% 39
+\BOOKMARK [2][-]{subsection.10.7}{Unexpected output}{section.10}% 40
+\BOOKMARK [1][-]{section.11}{Example to a control loop}{}% 41
+\BOOKMARK [2][-]{subsection.11.1}{IP configuration}{section.11}% 42
+\BOOKMARK [2][-]{subsection.11.2}{Webserver configuration}{section.11}% 43
+\BOOKMARK [2][-]{subsection.11.3}{Expected output}{section.11}% 44

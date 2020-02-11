@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.6.19)  5 FEB 2020 11:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.6.19)  11 FEB 2020 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -688,15 +688,122 @@ File: pgfmodulematrix.code.tex 2019/02/02 v3.1.1 (3.1.1)
 zlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2019/02/02 v3.1.1 (3.1.1)
 )))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytrees.code.tex
+File: tikzlibrarytrees.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.cod
+e.tex
+File: pgflibrarypatterns.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.pathreplacing.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
+e.tex
+\pgfdecoratedcompleteddistance=\dimen192
+\pgfdecoratedremainingdistance=\dimen193
+\pgfdecoratedinputsegmentcompleteddistance=\dimen194
+\pgfdecoratedinputsegmentremainingdistance=\dimen195
+\pgf@decorate@distancetomove=\dimen196
+\pgf@decorate@repeatstate=\count157
+\pgfdecorationsegmentamplitude=\dimen197
+\pgfdecorationsegmentlength=\dimen198
+)
+\tikz@lib@dec@box=\box70
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.pathreplacing.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfnodepartlowerbox=\box71
+\pgfnodeparttwobox=\box72
+\pgfnodepartthreebox=\box73
+\pgfnodepartfourbox=\box74
+\pgfnodeparttwentybox=\box75
+\pgfnodepartnineteenbox=\box76
+\pgfnodeparteighteenbox=\box77
+\pgfnodepartseventeenbox=\box78
+\pgfnodepartsixteenbox=\box79
+\pgfnodepartfifteenbox=\box80
+\pgfnodepartfourteenbox=\box81
+\pgfnodepartthirteenbox=\box82
+\pgfnodeparttwelvebox=\box83
+\pgfnodepartelevenbox=\box84
+\pgfnodeparttenbox=\box85
+\pgfnodepartninebox=\box86
+\pgfnodeparteightbox=\box87
+\pgfnodepartsevenbox=\box88
+\pgfnodepartsixbox=\box89
+\pgfnodepartfivebox=\box90
+)))
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
-\col@sep=\dimen192
-\ar@mcellbox=\box70
-\extrarowheight=\dimen193
+\col@sep=\dimen199
+\ar@mcellbox=\box91
+\extrarowheight=\dimen256
 \NC@list=\toks37
 \extratabsurround=\skip55
 \backup@length=\skip56
-\ar@cellbox=\box71
+\ar@cellbox=\box92
 )
 (/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write4
@@ -713,57 +820,57 @@ File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/arydshln/arydshln.sty
 Package: arydshln 2019/02/21 v1.76 
-\dashlinedash=\dimen194
-\dashlinegap=\dimen195
-\adl@box=\box72
-\adl@height=\dimen196
-\adl@heightsave=\dimen197
-\adl@depth=\dimen198
-\adl@depthsave=\dimen199
-\adl@finaldepth=\dimen256
-\adl@columns=\count157
-\adl@ncol=\count158
-\adl@currentcolumn=\count159
-\adl@currentcolumnsave=\count160
-\adl@totalheight=\count161
-\adl@totalheightsave=\count162
-\adl@dash=\count163
-\adl@gap=\count164
-\adl@cla=\count165
-\adl@clb=\count166
+\dashlinedash=\dimen257
+\dashlinegap=\dimen258
+\adl@box=\box93
+\adl@height=\dimen259
+\adl@heightsave=\dimen260
+\adl@depth=\dimen261
+\adl@depthsave=\dimen262
+\adl@finaldepth=\dimen263
+\adl@columns=\count158
+\adl@ncol=\count159
+\adl@currentcolumn=\count160
+\adl@currentcolumnsave=\count161
+\adl@totalheight=\count162
+\adl@totalheightsave=\count163
+\adl@dash=\count164
+\adl@gap=\count165
+\adl@cla=\count166
+\adl@clb=\count167
 \adl@everyvbox=\toks38
-\adl@LTpagetotal=\dimen257
+\adl@LTpagetotal=\dimen264
 )
 (./Base_designs.aux)
 \openout1 = `Base_designs.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count167
-\scratchdimen=\dimen258
-\scratchbox=\box73
-\nofMPsegments=\count168
-\nofMParguments=\count169
+\scratchcounter=\count168
+\scratchdimen=\dimen265
+\scratchbox=\box94
+\nofMPsegments=\count169
+\nofMParguments=\count170
 \everyMPshowfont=\toks39
-\MPscratchCnt=\count170
-\MPscratchDim=\dimen259
-\MPnumerator=\count171
-\makeMPintoPDFobject=\count172
+\MPscratchCnt=\count171
+\MPscratchDim=\dimen266
+\MPnumerator=\count172
+\makeMPintoPDFobject=\count173
 \everyMPtoPDFconversion=\toks40
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -782,8 +889,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box74
-Package hyperref Info: Link coloring ON on input line 46.
+\AtBeginShipoutBox=\box95
+Package hyperref Info: Link coloring ON on input line 47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -791,11 +898,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count173
+\c@section@level=\count174
 )
-LaTeX Info: Redefining \ref on input line 46.
-LaTeX Info: Redefining \pageref on input line 46.
-LaTeX Info: Redefining \nameref on input line 46.
+LaTeX Info: Redefining \ref on input line 47.
+LaTeX Info: Redefining \pageref on input line 47.
+LaTeX Info: Redefining \nameref on input line 47.
 
 (./Base_designs.out) (./Base_designs.out)
 \@outlinefile=\write5
@@ -805,85 +912,85 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count174
+\c@lstlisting=\count175
 
 ABD: EveryShipout initializing macros
-Overfull \hbox (8.01984pt too wide) in paragraph at lines 54--56
+Overfull \hbox (8.01984pt too wide) in paragraph at lines 55--57
 \OT1/cmr/m/n/12 the Os-cil-la-torIMP ecosys-tem, oth-er-wise re-fer to : [][]ht
 tps://github.com/oscimp/oscimpDigital[][].
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 78.
+LaTeX Font Info:    Try loading font information for U+msa on input line 79.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 78.
+LaTeX Font Info:    Try loading font information for U+msb on input line 79.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<figures/overflow.jpg, id=157, 576.65437pt x 319.1925pt>
+<figures/overflow.jpg, id=185, 576.65437pt x 319.1925pt>
 File: figures/overflow.jpg Graphic file (type jpg)
 <use figures/overflow.jpg>
-Package pdftex.def Info: figures/overflow.jpg  used on input line 82.
+Package pdftex.def Info: figures/overflow.jpg  used on input line 83.
 (pdftex.def)             Requested size: 230.36061pt x 127.50914pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/overflow.jpg>]
-<figures/Offset.pdf, id=180, 614.295pt x 794.97pt>
+<figures/Offset.pdf, id=209, 614.295pt x 794.97pt>
 File: figures/Offset.pdf Graphic file (type pdf)
 <use figures/Offset.pdf>
-Package pdftex.def Info: figures/Offset.pdf  used on input line 98.
+Package pdftex.def Info: figures/Offset.pdf  used on input line 99.
 (pdftex.def)             Requested size: 142.26378pt x 79.44722pt.
 
-Overfull \hbox (4.046pt too wide) in paragraph at lines 98--98
+Overfull \hbox (4.046pt too wide) in paragraph at lines 99--99
  []|[]| 
  []
 
-<figures/splitter.pdf, id=182, 614.295pt x 794.97pt>
+<figures/splitter.pdf, id=211, 614.295pt x 794.97pt>
 File: figures/splitter.pdf Graphic file (type pdf)
 <use figures/splitter.pdf>
-Package pdftex.def Info: figures/splitter.pdf  used on input line 109.
+Package pdftex.def Info: figures/splitter.pdf  used on input line 110.
 (pdftex.def)             Requested size: 136.5733pt x 65.81226pt.
-<figures/addsub.pdf, id=184, 614.295pt x 794.97pt>
+<figures/addsub.pdf, id=213, 614.295pt x 794.97pt>
 File: figures/addsub.pdf Graphic file (type pdf)
 <use figures/addsub.pdf>
-Package pdftex.def Info: figures/addsub.pdf  used on input line 124.
+Package pdftex.def Info: figures/addsub.pdf  used on input line 125.
 (pdftex.def)             Requested size: 170.71652pt x 74.04427pt.
 
-Overfull \hbox (32.49875pt too wide) in paragraph at lines 124--124
+Overfull \hbox (32.49875pt too wide) in paragraph at lines 125--125
  []|[]| 
  []
 
-<figures/mixer.pdf, id=186, 614.295pt x 794.97pt>
+<figures/mixer.pdf, id=215, 614.295pt x 794.97pt>
 File: figures/mixer.pdf Graphic file (type pdf)
 <use figures/mixer.pdf>
-Package pdftex.def Info: figures/mixer.pdf  used on input line 136.
+Package pdftex.def Info: figures/mixer.pdf  used on input line 137.
 (pdftex.def)             Requested size: 130.88284pt x 66.41101pt.
-<figures/fir.pdf, id=188, 614.295pt x 794.97pt>
+<figures/fir.pdf, id=217, 614.295pt x 794.97pt>
 File: figures/fir.pdf Graphic file (type pdf)
 <use figures/fir.pdf>
-Package pdftex.def Info: figures/fir.pdf  used on input line 150.
+Package pdftex.def Info: figures/fir.pdf  used on input line 151.
 (pdftex.def)             Requested size: 136.5733pt x 76.26971pt.
-<figures/exp.pdf, id=190, 614.295pt x 794.97pt>
+<figures/exp.pdf, id=219, 614.295pt x 794.97pt>
 File: figures/exp.pdf Graphic file (type pdf)
 <use figures/exp.pdf>
-Package pdftex.def Info: figures/exp.pdf  used on input line 162.
+Package pdftex.def Info: figures/exp.pdf  used on input line 163.
 (pdftex.def)             Requested size: 128.0374pt x 55.1617pt.
-<figures/shift1.pdf, id=192, 614.295pt x 794.97pt>
+<figures/shift1.pdf, id=221, 614.295pt x 794.97pt>
 File: figures/shift1.pdf Graphic file (type pdf)
 <use figures/shift1.pdf>
-Package pdftex.def Info: figures/shift1.pdf  used on input line 163.
+Package pdftex.def Info: figures/shift1.pdf  used on input line 164.
 (pdftex.def)             Requested size: 142.26378pt x 52.08574pt.
 
-Overfull \hbox (4.046pt too wide) in paragraph at lines 162--163
+Overfull \hbox (4.046pt too wide) in paragraph at lines 163--164
  []| 
  []
 
-<figures/switch.pdf, id=194, 614.295pt x 794.97pt>
+<figures/switch.pdf, id=223, 614.295pt x 794.97pt>
 File: figures/switch.pdf Graphic file (type pdf)
 <use figures/switch.pdf>
-Package pdftex.def Info: figures/switch.pdf  used on input line 190.
+Package pdftex.def Info: figures/switch.pdf  used on input line 191.
 (pdftex.def)             Requested size: 113.81102pt x 85.20082pt.
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
@@ -893,7 +1000,7 @@ File: tikzlibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\arrowsize=\dimen260
+\arrowsize=\dimen267
 ))
 Overfull \vbox (11.8216pt too high) has occurred while \output is active []
 
@@ -901,42 +1008,42 @@ Overfull \vbox (11.8216pt too high) has occurred while \output is active []
 [2 <./figures/Offset.pdf> <./figures/splitter.pdf> <./figures/addsub.pdf> <./fi
 gures/mixer.pdf> <./figures/fir.pdf> <./figures/exp.pdf> <./figures/shift1.pdf>
  <./figures/switch.pdf>]
-<figures/mean.pdf, id=284, 614.295pt x 794.97pt>
+<figures/mean.pdf, id=312, 614.295pt x 794.97pt>
 File: figures/mean.pdf Graphic file (type pdf)
 <use figures/mean.pdf>
-Package pdftex.def Info: figures/mean.pdf  used on input line 223.
+Package pdftex.def Info: figures/mean.pdf  used on input line 224.
 (pdftex.def)             Requested size: 108.12054pt x 45.73178pt.
-<figures/delay.pdf, id=286, 614.295pt x 794.97pt>
+<figures/delay.pdf, id=314, 614.295pt x 794.97pt>
 File: figures/delay.pdf Graphic file (type pdf)
 <use figures/delay.pdf>
-Package pdftex.def Info: figures/delay.pdf  used on input line 236.
+Package pdftex.def Info: figures/delay.pdf  used on input line 237.
 (pdftex.def)             Requested size: 122.34692pt x 73.3072pt.
 Missing character: There is no b in font nullfont!
 Missing character: There is no g in font nullfont!
-<figures/axi2dac.pdf, id=288, 614.295pt x 794.97pt>
+<figures/axi2dac.pdf, id=316, 614.295pt x 794.97pt>
 File: figures/axi2dac.pdf Graphic file (type pdf)
 <use figures/axi2dac.pdf>
-Package pdftex.def Info: figures/axi2dac.pdf  used on input line 248.
+Package pdftex.def Info: figures/axi2dac.pdf  used on input line 249.
 (pdftex.def)             Requested size: 113.81102pt x 77.90103pt.
-<figures/nco.pdf, id=290, 614.295pt x 794.97pt>
+<figures/nco.pdf, id=318, 614.295pt x 794.97pt>
 File: figures/nco.pdf Graphic file (type pdf)
 <use figures/nco.pdf>
-Package pdftex.def Info: figures/nco.pdf  used on input line 258.
+Package pdftex.def Info: figures/nco.pdf  used on input line 259.
 (pdftex.def)             Requested size: 128.0374pt x 98.29768pt.
-<figures/pidv3.pdf, id=292, 614.295pt x 794.97pt>
+<figures/pidv3.pdf, id=320, 614.295pt x 794.97pt>
 File: figures/pidv3.pdf Graphic file (type pdf)
 <use figures/pidv3.pdf>
-Package pdftex.def Info: figures/pidv3.pdf  used on input line 271.
+Package pdftex.def Info: figures/pidv3.pdf  used on input line 272.
 (pdftex.def)             Requested size: 113.81102pt x 98.8156pt.
-<figures/dat2ram.pdf, id=294, 614.295pt x 794.97pt>
+<figures/dat2ram.pdf, id=322, 614.295pt x 794.97pt>
 File: figures/dat2ram.pdf Graphic file (type pdf)
 <use figures/dat2ram.pdf>
-Package pdftex.def Info: figures/dat2ram.pdf  used on input line 281.
+Package pdftex.def Info: figures/dat2ram.pdf  used on input line 282.
 (pdftex.def)             Requested size: 108.12054pt x 77.21027pt.
-<figures/convert.pdf, id=296, 614.295pt x 794.97pt>
+<figures/convert.pdf, id=324, 614.295pt x 794.97pt>
 File: figures/convert.pdf Graphic file (type pdf)
 <use figures/convert.pdf>
-Package pdftex.def Info: figures/convert.pdf  used on input line 293.
+Package pdftex.def Info: figures/convert.pdf  used on input line 294.
 (pdftex.def)             Requested size: 130.88284pt x 98.11919pt.
 
 Overfull \vbox (13.27205pt too high) has occurred while \output is active []
@@ -945,64 +1052,64 @@ Overfull \vbox (13.27205pt too high) has occurred while \output is active []
 [3 <./figures/mean.pdf> <./figures/delay.pdf> <./figures/axi2dac.pdf> <./figure
 s/nco.pdf> <./figures/pidv3.pdf> <./figures/dat2ram.pdf> <./figures/convert.pdf
 >]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 322.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 323.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 322.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 323.
  [4]
-<webserver/Super_webserver.png, id=414, 915.42pt x 388.45125pt>
+<webserver/Super_webserver.png, id=442, 915.42pt x 388.45125pt>
 File: webserver/Super_webserver.png Graphic file (type png)
 <use webserver/Super_webserver.png>
-Package pdftex.def Info: webserver/Super_webserver.png  used on input line 428.
+Package pdftex.def Info: webserver/Super_webserver.png  used on input line 429.
 
 (pdftex.def)             Requested size: 426.79134pt x 181.10214pt.
  [5]
-Underfull \hbox (badness 10000) in paragraph at lines 434--437
+Underfull \hbox (badness 10000) in paragraph at lines 435--438
 
  []
 
-<figures/GeneTension.pdf, id=473, 614.295pt x 794.97pt>
+<figures/GeneTension.pdf, id=501, 614.295pt x 794.97pt>
 File: figures/GeneTension.pdf Graphic file (type pdf)
 <use figures/GeneTension.pdf>
-Package pdftex.def Info: figures/GeneTension.pdf  used on input line 450.
+Package pdftex.def Info: figures/GeneTension.pdf  used on input line 451.
 (pdftex.def)             Requested size: 341.43306pt x 124.11488pt.
 [6 <./webserver/Super_webserver.png>]
-<figures/doubleDDS.pdf, id=485, 614.295pt x 794.97pt>
+<figures/doubleDDS.pdf, id=513, 614.295pt x 794.97pt>
 File: figures/doubleDDS.pdf Graphic file (type pdf)
 <use figures/doubleDDS.pdf>
-Package pdftex.def Info: figures/doubleDDS.pdf  used on input line 518.
+Package pdftex.def Info: figures/doubleDDS.pdf  used on input line 519.
 (pdftex.def)             Requested size: 455.24408pt x 265.85347pt.
  [7 <./figures/GeneTension.pdf>] [8 <./figures/doubleDDS.pdf>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 551.
-<webserver/2019-10-14-143651_927x541_scrot.png, id=521, 930.47626pt x 543.02875
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 552.
+<webserver/2019-10-14-143651_927x541_scrot.png, id=549, 930.47626pt x 543.02875
 pt>
 File: webserver/2019-10-14-143651_927x541_scrot.png Graphic file (type png)
 <use webserver/2019-10-14-143651_927x541_scrot.png>
 Package pdftex.def Info: webserver/2019-10-14-143651_927x541_scrot.png  used on
- input line 561.
+ input line 562.
 (pdftex.def)             Requested size: 398.33858pt x 232.47034pt.
-<scope/doubleDDSok.pdf, id=523, 809.0225pt x 364.36125pt>
+<scope/doubleDDSok.pdf, id=551, 809.0225pt x 364.36125pt>
 File: scope/doubleDDSok.pdf Graphic file (type pdf)
 <use scope/doubleDDSok.pdf>
-Package pdftex.def Info: scope/doubleDDSok.pdf  used on input line 577.
+Package pdftex.def Info: scope/doubleDDSok.pdf  used on input line 578.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
  [9 <./webserver/2019-10-14-143651_927x541_scrot.png>]
-<scope/doubleDDSokPhi.pdf, id=531, 809.0225pt x 364.36125pt>
+<scope/doubleDDSokPhi.pdf, id=559, 809.0225pt x 364.36125pt>
 File: scope/doubleDDSokPhi.pdf Graphic file (type pdf)
 <use scope/doubleDDSokPhi.pdf>
-Package pdftex.def Info: scope/doubleDDSokPhi.pdf  used on input line 587.
+Package pdftex.def Info: scope/doubleDDSokPhi.pdf  used on input line 588.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
-<scope/doubleDDSpasOk.pdf, id=533, 809.0225pt x 364.36125pt>
+<scope/doubleDDSpasOk.pdf, id=561, 809.0225pt x 364.36125pt>
 File: scope/doubleDDSpasOk.pdf Graphic file (type pdf)
 <use scope/doubleDDSpasOk.pdf>
-Package pdftex.def Info: scope/doubleDDSpasOk.pdf  used on input line 601.
+Package pdftex.def Info: scope/doubleDDSpasOk.pdf  used on input line 602.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
 
-Overfull \hbox (35.07155pt too wide) in paragraph at lines 606--607
+Overfull \hbox (35.07155pt too wide) in paragraph at lines 607--608
 []\OT1/cmr/m/n/12 Solution: de-crease ei-ther $\OML/cmm/m/it/12 dds\OT1/cmr/m/n
 /12 1[]\OML/cmm/m/it/12 ampl$ \OT1/cmr/m/n/12 or $\OML/cmm/m/it/12 dds\OT1/cmr/
 m/n/12 1[]\OML/cmm/m/it/12 offset$\OT1/cmr/m/n/12 , such as $[]$. 
@@ -1010,128 +1117,128 @@ m/n/12 1[]\OML/cmm/m/it/12 offset$\OT1/cmr/m/n/12 , such as $[]$.
 
 [10 <./scope/DoubleDDSok.pdf> <./scope/DoubleDDSokPhi.pdf>] [11 <./scope/Double
 DDSpasOk.pdf>]
-<design/mod_ampl1.pdf, id=575, 614.295pt x 794.97pt>
+<design/mod_ampl1.pdf, id=603, 614.295pt x 794.97pt>
 File: design/mod_ampl1.pdf Graphic file (type pdf)
 <use design/mod_ampl1.pdf>
-Package pdftex.def Info: design/mod_ampl1.pdf  used on input line 665.
+Package pdftex.def Info: design/mod_ampl1.pdf  used on input line 666.
 (pdftex.def)             Requested size: 398.33858pt x 189.52162pt.
-<webserver/AM_V1.png, id=578, 792.9625pt x 329.23pt>
+<webserver/AM_V1.png, id=606, 792.9625pt x 329.23pt>
 File: webserver/AM_V1.png Graphic file (type png)
 <use webserver/AM_V1.png>
-Package pdftex.def Info: webserver/AM_V1.png  used on input line 702.
+Package pdftex.def Info: webserver/AM_V1.png  used on input line 703.
 (pdftex.def)             Requested size: 398.33858pt x 165.38823pt.
  [12 <./design/mod_ampl1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 711--712
+Underfull \hbox (badness 10000) in paragraph at lines 712--713
 
  []
 
-<scope/Mod_amplOkV1h05.pdf, id=595, 809.0225pt x 364.36125pt>
+<scope/Mod_amplOkV1h05.pdf, id=623, 809.0225pt x 364.36125pt>
 File: scope/Mod_amplOkV1h05.pdf Graphic file (type pdf)
 <use scope/Mod_amplOkV1h05.pdf>
-Package pdftex.def Info: scope/Mod_amplOkV1h05.pdf  used on input line 717.
+Package pdftex.def Info: scope/Mod_amplOkV1h05.pdf  used on input line 718.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
-<scope/Mod_amplOkV1h10.pdf, id=596, 809.0225pt x 364.36125pt>
+<scope/Mod_amplOkV1h10.pdf, id=624, 809.0225pt x 364.36125pt>
 File: scope/Mod_amplOkV1h10.pdf Graphic file (type pdf)
 <use scope/Mod_amplOkV1h10.pdf>
-Package pdftex.def Info: scope/Mod_amplOkV1h10.pdf  used on input line 727.
+Package pdftex.def Info: scope/Mod_amplOkV1h10.pdf  used on input line 728.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
 [13 <./webserver/AM_V1.png> <./scope/Mod_amplOkV1h05.pdf>]
-<scope/Mod_amplOkV1h20.pdf, id=614, 809.0225pt x 364.36125pt>
+<scope/Mod_amplOkV1h20.pdf, id=642, 809.0225pt x 364.36125pt>
 File: scope/Mod_amplOkV1h20.pdf Graphic file (type pdf)
 <use scope/Mod_amplOkV1h20.pdf>
-Package pdftex.def Info: scope/Mod_amplOkV1h20.pdf  used on input line 737.
+Package pdftex.def Info: scope/Mod_amplOkV1h20.pdf  used on input line 738.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
-<scope/Mod_amplPasOkV1.pdf, id=615, 809.0225pt x 364.36125pt>
+<scope/Mod_amplPasOkV1.pdf, id=643, 809.0225pt x 364.36125pt>
 File: scope/Mod_amplPasOkV1.pdf Graphic file (type pdf)
 <use scope/Mod_amplPasOkV1.pdf>
-Package pdftex.def Info: scope/Mod_amplPasOkV1.pdf  used on input line 749.
+Package pdftex.def Info: scope/Mod_amplPasOkV1.pdf  used on input line 750.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
  [14 <./scope/Mod_amplOkV1h10.pdf> <./scope/Mod_amplOkV1h20.pdf>]
-<design/mod_ampl.pdf, id=642, 614.295pt x 794.97pt>
+<design/mod_ampl.pdf, id=670, 614.295pt x 794.97pt>
 File: design/mod_ampl.pdf Graphic file (type pdf)
 <use design/mod_ampl.pdf>
-Package pdftex.def Info: design/mod_ampl.pdf  used on input line 792.
+Package pdftex.def Info: design/mod_ampl.pdf  used on input line 793.
 (pdftex.def)             Requested size: 455.24408pt x 245.33514pt.
  [15 <./scope/Mod_amplPasOkV1.pdf>] [16 <./design/mod_ampl.pdf>]
-<webserver/2020-01-13-104008_907x265_scrot.png, id=675, 910.40125pt x 265.99374
+<webserver/2020-01-13-104008_907x265_scrot.png, id=703, 910.40125pt x 265.99374
 pt>
 File: webserver/2020-01-13-104008_907x265_scrot.png Graphic file (type png)
 <use webserver/2020-01-13-104008_907x265_scrot.png>
 Package pdftex.def Info: webserver/2020-01-13-104008_907x265_scrot.png  used on
- input line 826.
+ input line 827.
 (pdftex.def)             Requested size: 398.33858pt x 116.38414pt.
-<scope/Mod_amplOk.pdf, id=676, 809.0225pt x 364.36125pt>
+<scope/Mod_amplOk.pdf, id=704, 809.0225pt x 364.36125pt>
 File: scope/Mod_amplOk.pdf Graphic file (type pdf)
 <use scope/Mod_amplOk.pdf>
-Package pdftex.def Info: scope/Mod_amplOk.pdf  used on input line 839.
+Package pdftex.def Info: scope/Mod_amplOk.pdf  used on input line 840.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
-<scope/Mod_amplPasOk.pdf, id=678, 809.0225pt x 364.36125pt>
+<scope/Mod_amplPasOk.pdf, id=706, 809.0225pt x 364.36125pt>
 File: scope/Mod_amplPasOk.pdf Graphic file (type pdf)
 <use scope/Mod_amplPasOk.pdf>
-Package pdftex.def Info: scope/Mod_amplPasOk.pdf  used on input line 851.
+Package pdftex.def Info: scope/Mod_amplPasOk.pdf  used on input line 852.
 (pdftex.def)             Requested size: 398.33858pt x 179.40031pt.
  [17 <./webserver/2020-01-13-104008_907x265_scrot.png> <./scope/Mod_amplOk.pdf>
 ]
-<design/FMPM3.pdf, id=699, 614.295pt x 794.97pt>
+<design/FMPM3.pdf, id=727, 614.295pt x 794.97pt>
 File: design/FMPM3.pdf Graphic file (type pdf)
 <use design/FMPM3.pdf>
-Package pdftex.def Info: design/FMPM3.pdf  used on input line 868.
+Package pdftex.def Info: design/FMPM3.pdf  used on input line 869.
 (pdftex.def)             Requested size: 239.00298pt x 708.3507pt.
 
 
-LaTeX Warning: Float too large for page by 39.76604pt on input line 872.
+LaTeX Warning: Float too large for page by 39.76604pt on input line 873.
 
 [18 <./scope/Mod_amplPasOk.pdf>] [19 <./design/FMPM3.pdf, page is rotated 270 d
 egrees>]
-<webserver/2020-01-07-090526_907x561_scrot.png, id=734, 910.40125pt x 563.10374
+<webserver/2020-01-07-090526_907x561_scrot.png, id=762, 910.40125pt x 563.10374
 pt>
 File: webserver/2020-01-07-090526_907x561_scrot.png Graphic file (type png)
 <use webserver/2020-01-07-090526_907x561_scrot.png>
 Package pdftex.def Info: webserver/2020-01-07-090526_907x561_scrot.png  used on
- input line 987.
+ input line 988.
 (pdftex.def)             Requested size: 398.33858pt x 246.38306pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 995--998
+Underfull \hbox (badness 10000) in paragraph at lines 996--999
 
  []
 
 [20]
-<scope/Mod_freqOk.pdf, id=741, 873.2625pt x 419.5675pt>
+<scope/Mod_freqOk.pdf, id=769, 873.2625pt x 419.5675pt>
 File: scope/Mod_freqOk.pdf Graphic file (type pdf)
 <use scope/Mod_freqOk.pdf>
-Package pdftex.def Info: scope/Mod_freqOk.pdf  used on input line 1001.
+Package pdftex.def Info: scope/Mod_freqOk.pdf  used on input line 1002.
 (pdftex.def)             Requested size: 398.33858pt x 191.38365pt.
  [21 <./webserver/2020-01-07-090526_907x561_scrot.png> <./scope/Mod_freqOK.pdf>
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1009--1012
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1013
 
  []
 
-<scope/Mod_phaseOk.pdf, id=759, 873.2625pt x 419.5675pt>
+<scope/Mod_phaseOk.pdf, id=787, 873.2625pt x 419.5675pt>
 File: scope/Mod_phaseOk.pdf Graphic file (type pdf)
 <use scope/Mod_phaseOk.pdf>
-Package pdftex.def Info: scope/Mod_phaseOk.pdf  used on input line 1015.
+Package pdftex.def Info: scope/Mod_phaseOk.pdf  used on input line 1016.
 (pdftex.def)             Requested size: 398.33858pt x 191.38365pt.
 [22 <./scope/Mod_phaseOK.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1044--1047
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1048
 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 1050
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 1051
 .
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1050.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1051.
 
  [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1083--1087
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1088
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1083--1087
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1088
 
  []
 
@@ -1139,18 +1246,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1083--1087
 
 pdfTeX warning: /usr/bin/pdflatex (file ./curves/lp55co.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<curves/lp55co.pdf, id=794, 614.295pt x 794.97pt>
+<curves/lp55co.pdf, id=822, 614.295pt x 794.97pt>
 File: curves/lp55co.pdf Graphic file (type pdf)
 <use curves/lp55co.pdf>
-Package pdftex.def Info: curves/lp55co.pdf  used on input line 1096.
+Package pdftex.def Info: curves/lp55co.pdf  used on input line 1097.
 (pdftex.def)             Requested size: 298.75394pt x 225.6439pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1103--1107
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1106
+Underfull \hbox (badness 10000) in paragraph at lines 1103--1107
 
  []
 
@@ -1158,18 +1265,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1102--1106
 
 pdfTeX warning: /usr/bin/pdflatex (file ./curves/lp15co.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<curves/lp15co.pdf, id=817, 614.295pt x 794.97pt>
+<curves/lp15co.pdf, id=845, 614.295pt x 794.97pt>
 File: curves/lp15co.pdf Graphic file (type pdf)
 <use curves/lp15co.pdf>
-Package pdftex.def Info: curves/lp15co.pdf  used on input line 1115.
+Package pdftex.def Info: curves/lp15co.pdf  used on input line 1116.
 (pdftex.def)             Requested size: 341.43306pt x 257.87701pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1121--1125
+Underfull \hbox (badness 10000) in paragraph at lines 1122--1126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1121--1125
+Underfull \hbox (badness 10000) in paragraph at lines 1122--1126
 
  []
 
@@ -1177,138 +1284,219 @@ Underfull \hbox (badness 10000) in paragraph at lines 1121--1125
 
 pdfTeX warning: /usr/bin/pdflatex (file ./curves/bs55co.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<curves/bs55co.pdf, id=819, 614.295pt x 794.97pt>
+<curves/bs55co.pdf, id=847, 614.295pt x 794.97pt>
 File: curves/bs55co.pdf Graphic file (type pdf)
 <use curves/bs55co.pdf>
-Package pdftex.def Info: curves/bs55co.pdf  used on input line 1134.
+Package pdftex.def Info: curves/bs55co.pdf  used on input line 1135.
 (pdftex.def)             Requested size: 341.43306pt x 257.87701pt.
 [25 <./curves/lp15co.pdf>] [26 <./curves/bs55co.pdf>]
-<design/demod.pdf, id=854, 614.295pt x 794.97pt>
+<design/demod.pdf, id=882, 614.295pt x 794.97pt>
 File: design/demod.pdf Graphic file (type pdf)
 <use design/demod.pdf>
-Package pdftex.def Info: design/demod.pdf  used on input line 1212.
+Package pdftex.def Info: design/demod.pdf  used on input line 1213.
 (pdftex.def)             Requested size: 426.79134pt x 207.60233pt.
  [27 <./design/demod.pdf>]
-<webserver/2020-01-08-082405_907x201_scrot.png, id=878, 910.40125pt x 201.75375
+<webserver/2020-01-08-082405_907x201_scrot.png, id=906, 910.40125pt x 201.75375
 pt>
 File: webserver/2020-01-08-082405_907x201_scrot.png Graphic file (type png)
 <use webserver/2020-01-08-082405_907x201_scrot.png>
 Package pdftex.def Info: webserver/2020-01-08-082405_907x201_scrot.png  used on
- input line 1253.
+ input line 1254.
 (pdftex.def)             Requested size: 426.79134pt x 94.58107pt.
 [28 <./webserver/2020-01-08-082405_907x201_scrot.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1272--1273
+Underfull \hbox (badness 10000) in paragraph at lines 1273--1274
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1274--1275
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1277--1278
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1279--1282
+Underfull \hbox (badness 10000) in paragraph at lines 1280--1283
 
  []
 
-<scope/demods1.pdf, id=886, 750.805pt x 361.35pt>
+<scope/demods1.pdf, id=914, 750.805pt x 361.35pt>
 File: scope/demods1.pdf Graphic file (type pdf)
 <use scope/demods1.pdf>
-Package pdftex.def Info: scope/demods1.pdf  used on input line 1285.
+Package pdftex.def Info: scope/demods1.pdf  used on input line 1286.
 (pdftex.def)             Requested size: 369.88582pt x 178.02245pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1293
+Underfull \hbox (badness 10000) in paragraph at lines 1292--1294
 
  []
 
-<scope/demods2.pdf, id=888, 750.805pt x 361.35pt>
+<scope/demods2.pdf, id=916, 750.805pt x 361.35pt>
 File: scope/demods2.pdf Graphic file (type pdf)
 <use scope/demods2.pdf>
-Package pdftex.def Info: scope/demods2.pdf  used on input line 1296.
+Package pdftex.def Info: scope/demods2.pdf  used on input line 1297.
 (pdftex.def)             Requested size: 369.88582pt x 178.02245pt.
-<scope/demods3.pdf, id=890, 750.805pt x 361.35pt>
+<scope/demods3.pdf, id=918, 750.805pt x 361.35pt>
 File: scope/demods3.pdf Graphic file (type pdf)
 <use scope/demods3.pdf>
-Package pdftex.def Info: scope/demods3.pdf  used on input line 1306.
+Package pdftex.def Info: scope/demods3.pdf  used on input line 1307.
 (pdftex.def)             Requested size: 369.88582pt x 178.02245pt.
 [29 <./scope/demods1.pdf>]
-Overfull \hbox (19.22145pt too wide) in paragraph at lines 1313--1316
+Overfull \hbox (19.22145pt too wide) in paragraph at lines 1314--1317
 []\OT1/cmr/m/n/12 As a re-minder, the phase off-set al-lows a phase shift of $\
 OMS/cmsy/m/n/12 ^^F\OT1/cmr/m/n/12 4\OML/cmm/m/it/12 ^^Y$\OT1/cmr/m/n/12 , i.e.
  ap-prox-i-mately $2048 []\OML/cmm/m/it/12 arb: []unit$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1317
 
  []
 
 [30 <./scope/demods2.pdf> <./scope/demods3.pdf>]
-<scope/demodampl.pdf, id=936, 750.805pt x 361.35pt>
+<scope/demodampl.pdf, id=964, 750.805pt x 361.35pt>
 File: scope/demodampl.pdf Graphic file (type pdf)
 <use scope/demodampl.pdf>
-Package pdftex.def Info: scope/demodampl.pdf  used on input line 1321.
+Package pdftex.def Info: scope/demodampl.pdf  used on input line 1322.
 (pdftex.def)             Requested size: 369.88582pt x 178.02245pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1327--1333
+Underfull \hbox (badness 10000) in paragraph at lines 1328--1334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1327--1333
+Underfull \hbox (badness 10000) in paragraph at lines 1328--1334
 
  []
 
-<scope/demodphcar.pdf, id=939, 750.805pt x 361.35pt>
+<scope/demodphcar.pdf, id=967, 750.805pt x 361.35pt>
 File: scope/demodphcar.pdf Graphic file (type pdf)
 <use scope/demodphcar.pdf>
-Package pdftex.def Info: scope/demodphcar.pdf  used on input line 1336.
+Package pdftex.def Info: scope/demodphcar.pdf  used on input line 1337.
 (pdftex.def)             Requested size: 369.88582pt x 178.02245pt.
 [31 <./scope/demodampl.pdf> <./scope/demodphcar.pdf>]
-<design/data2ramMoy.pdf, id=971, 614.295pt x 794.97pt>
+<design/data2ramMoy.pdf, id=999, 614.295pt x 794.97pt>
 File: design/data2ramMoy.pdf Graphic file (type pdf)
 <use design/data2ramMoy.pdf>
-Package pdftex.def Info: design/data2ramMoy.pdf  used on input line 1370.
+Package pdftex.def Info: design/data2ramMoy.pdf  used on input line 1376.
 (pdftex.def)             Requested size: 426.79134pt x 155.14465pt.
  [32 <./design/data2ramMoy.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1397--1402
+Underfull \hbox (badness 10000) in paragraph at lines 1405--1410
 
  []
 
 [33] [34]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1455.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1455.
+<design/GNUflow.png, id=1064, 2007.5pt x 1204.5pt>
+File: design/GNUflow.png Graphic file (type png)
+<use design/GNUflow.png>
+Package pdftex.def Info: design/GNUflow.png  used on input line 1489.
+(pdftex.def)             Requested size: 455.24408pt x 136.81522pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1513--1514
+
+ []
+
+[35 <./design/GNUflow.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1522
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1522
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1522
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1522
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1530--1532
+
+ []
+
+<scope/gnu/NoMch1.png, id=1085, 1767.60374pt x 627.34375pt>
+File: scope/gnu/NoMch1.png Graphic file (type png)
+<use scope/gnu/NoMch1.png>
+Package pdftex.def Info: scope/gnu/NoMch1.png  used on input line 1548.
+(pdftex.def)             Requested size: 455.24408pt x 161.56435pt.
+<scope/gnu/NoMch2.png, id=1087, 1767.60374pt x 627.34375pt>
+File: scope/gnu/NoMch2.png Graphic file (type png)
+<use scope/gnu/NoMch2.png>
+Package pdftex.def Info: scope/gnu/NoMch2.png  used on input line 1557.
+(pdftex.def)             Requested size: 455.24408pt x 161.56435pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1564--1567
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1564--1567
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1575--1577
+
+ []
+
+[37 <./scope/gnu/NoMch1.png> <./scope/gnu/NoMch2.png>]
+<scope/gnu/Mch1.png, id=1104, 1767.60374pt x 627.34375pt>
+File: scope/gnu/Mch1.png Graphic file (type png)
+<use scope/gnu/Mch1.png>
+Package pdftex.def Info: scope/gnu/Mch1.png  used on input line 1592.
+(pdftex.def)             Requested size: 455.24408pt x 161.56435pt.
+<scope/gnu/Mch2.png, id=1106, 1767.60374pt x 627.34375pt>
+File: scope/gnu/Mch2.png Graphic file (type png)
+<use scope/gnu/Mch2.png>
+Package pdftex.def Info: scope/gnu/Mch2.png  used on input line 1600.
+(pdftex.def)             Requested size: 455.24408pt x 161.56435pt.
+ [38 <./scope/gnu/Mch1.png> <./scope/gnu/Mch2.png>] [39] [40]
+<webserver/2020-02-11-154130_889x946_scrot.png, id=1127, 892.33376pt x 949.5475
+pt>
+File: webserver/2020-02-11-154130_889x946_scrot.png Graphic file (type png)
+<use webserver/2020-02-11-154130_889x946_scrot.png>
+Package pdftex.def Info: webserver/2020-02-11-154130_889x946_scrot.png  used on
+ input line 1826.
+(pdftex.def)             Requested size: 426.79134pt x 454.15486pt.
+ [41]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1835.
+ [42 <./webserver/2020-02-11-154130_889x946_scrot.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1835.
  (./Base_designs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1455.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1455.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1835.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1835.
 
 Package rerunfilecheck Info: File `Base_designs.out' has not changed.
-(rerunfilecheck)             Checksum: 3976BDD2EE9F7E182B5E3C3687228D09;2406.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1455.
+(rerunfilecheck)             Checksum: EC24427AF264B4837E7A90951B54B8E4;2877.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1835.
  ) 
 Here is how much of TeX's memory you used:
- 21701 strings out of 494459
- 393959 string characters out of 6174603
- 813979 words of memory out of 5000000
- 24688 multiletter control sequences out of 15000+600000
+ 24492 strings out of 494459
+ 475038 string characters out of 6174603
+ 916312 words of memory out of 5000000
+ 27368 multiletter control sequences out of 15000+600000
  12363 words of font info for 48 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 55i,17n,52p,709b,1896s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,17n,71p,927b,1900s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1325,10 +1513,10 @@ hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Base_designs.pdf (34 pages, 1177619 bytes).
+Output written on Base_designs.pdf (42 pages, 1585984 bytes).
 PDF statistics:
- 1144 PDF objects out of 1200 (max. 8388607)
- 795 compressed objects within 8 object streams
- 271 named destinations out of 1000 (max. 500000)
- 741 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1262 PDF objects out of 1440 (max. 8388607)
+ 891 compressed objects within 9 object streams
+ 307 named destinations out of 1000 (max. 500000)
+ 867 words of extra memory for PDF output out of 10000 (max. 10000000)
 
