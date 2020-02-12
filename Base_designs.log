@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.6.19)  11 FEB 2020 15:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.6.19)  12 FEB 2020 10:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1469,31 +1469,40 @@ File: scope/gnu/Mch2.png Graphic file (type png)
 <use scope/gnu/Mch2.png>
 Package pdftex.def Info: scope/gnu/Mch2.png  used on input line 1600.
 (pdftex.def)             Requested size: 455.24408pt x 161.56435pt.
- [38 <./scope/gnu/Mch1.png> <./scope/gnu/Mch2.png>] [39] [40]
+ [38 <./scope/gnu/Mch1.png> <./scope/gnu/Mch2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1765--1768
+
+ []
+
+[39] [40]
 <webserver/2020-02-11-154130_889x946_scrot.png, id=1127, 892.33376pt x 949.5475
 pt>
 File: webserver/2020-02-11-154130_889x946_scrot.png Graphic file (type png)
 <use webserver/2020-02-11-154130_889x946_scrot.png>
 Package pdftex.def Info: webserver/2020-02-11-154130_889x946_scrot.png  used on
- input line 1826.
+ input line 1829.
 (pdftex.def)             Requested size: 426.79134pt x 454.15486pt.
  [41]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1835.
- [42 <./webserver/2020-02-11-154130_889x946_scrot.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1835.
+Overfull \hbox (6.22209pt too wide) in paragraph at lines 1951--1952
+[] 
+ []
+
+[42 <./webserver/2020-02-11-154130_889x946_scrot.png>] [43]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1953.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1953.
  (./Base_designs.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1835.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1835.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1953.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1953.
 
 Package rerunfilecheck Info: File `Base_designs.out' has not changed.
 (rerunfilecheck)             Checksum: EC24427AF264B4837E7A90951B54B8E4;2877.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1835.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1953.
  ) 
 Here is how much of TeX's memory you used:
- 24492 strings out of 494459
- 475038 string characters out of 6174603
+ 24499 strings out of 494459
+ 475123 string characters out of 6174603
  916312 words of memory out of 5000000
- 27368 multiletter control sequences out of 15000+600000
+ 27374 multiletter control sequences out of 15000+600000
  12363 words of font info for 48 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  55i,17n,71p,927b,1900s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1513,10 +1522,10 @@ hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Base_designs.pdf (42 pages, 1585984 bytes).
+Output written on Base_designs.pdf (43 pages, 1590032 bytes).
 PDF statistics:
- 1262 PDF objects out of 1440 (max. 8388607)
- 891 compressed objects within 9 object streams
- 307 named destinations out of 1000 (max. 500000)
+ 1267 PDF objects out of 1440 (max. 8388607)
+ 895 compressed objects within 9 object streams
+ 308 named destinations out of 1000 (max. 500000)
  867 words of extra memory for PDF output out of 10000 (max. 10000000)
 
