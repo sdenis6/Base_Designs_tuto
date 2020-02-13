@@ -1821,8 +1821,10 @@ Here, the expander (exp) and shifter (sh$_1$) are used to roughly adapt the rang
 \subsection{Webserver configuration}
 
 In the following webserver, the PI block is represented with 5 variables: the set point PI/setpoint, the sign PI/sign, the proportional gain PI/kp, the integral gain PI/ki, and the rst\_int checkbox that corresponds both to a disable integral correction and reset of the integral accumulator. 
+\newline
 
-\vspace{0cm}
+The dynamic shifter is also represented. It's increase corresponds to a division of the signal range in power of 2, and conversely it's decrease to a multiplication. It is used here to adapt the range of the dynamic of the signal to the range available, and therefore take advantage of the maximum resolution available.
+
 \begin{figure}[h!tb]
 	\begin{center}
 		\vspace{0.5cm}
@@ -1831,17 +1833,15 @@ In the following webserver, the PI block is represented with 5 variables: the se
 		\label{fig:pll_webserver}
 	\end{center}
 \end{figure}
-\vspace{0cm}
 
 \newpage
 
 \subsection{Expected output}
 
+Although this design was developed for the lock of the phase noise in a fiber link, it can be used for any RF lock loop between $0$ and $62.5~MHz$. To make a demonstration of use of this design, we will therefore not use a full optical fiber link setup, but simply reconnect the output to the input. A $15~dB$ attenuator is placed between the output and the input to decrease the input power, as shown below: 
+
+\hspace{-1.5cm}
 \begin{tikzpicture}
-
-\tikzstyle{mirror}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
-
-
 \node [] (pd1) {};
 
 \node[draw, rectangle, minimum size=.6cm, above of=pd1, yshift=1.26em] (plus1) {$+$};
@@ -1943,12 +1943,172 @@ In the following webserver, the PI block is represented with 5 variables: the se
 
 \draw [-,line width=2pt,blue] (dac) -- node [draw, black, yshift=0.3em, rotate=-90, fill, signal]{} (aom1.center);
 
-\node[draw, rectangle, minimum size=.6cm, xshift=-8em, left of=aom1] (att) {Attenuator $15~dB$};
+\node[draw, rectangle, minimum size=.6cm, xshift=-7em, left of=aom1] (att) {Attenuator $15~dB$};
 
 \draw [->,>=stealth,line width=2pt,blue] ([xshift=+0.08em] aom1.center) -- (att);
 \draw [-,line width=2pt,blue] (att) -- ([xshift=-0.09em] pd1.center);
 
 \end{tikzpicture}
+\vspace{1cm}
+
+
+In the following demonstrations, we show step by step how to adjust the parameters of this design. We will proceed as follows:
+
+\begin{enumerate}
+	\setlength\itemsep{-0.1cm}
+	\item Load the fir coefficients
+	\item Adjust the ADC and DAC offsets
+	\item Make the modulation/demodulation chain
+	\item Adjust the dynamic range
+	\item Lock the noise of the small RF link
+	\item Phase lock the NCO on a second NCO
+\end{enumerate}
+
+\subsubsection{Load the fir coefficients}
+
+The fir coefficients can be computed and loaded with the help of the section \ref{sect:filtering}. In this example we used a lowpass filter with a cutoff frequency of $3~MHz$ and $25$ coefficients. In the case the modulation and demodulation frequency are fixed, the fir coefficients can be calculated so that the sum frequency resulting of the mixing is situated between two bounces of the frequency response of the fir. 
+
+\subsubsection{Adjust the ADC and DAC offsets}
+
+Although the voltage offsets of the converters is not very high, depending on the application, it can be useful to compensate those offsets. The adc\_offset and dac\_offset blocks are used for this purpose. The adjustment of the adc\_offset lays on the left part of the scheme below, and the adjustment of the dac\_offset on its right part:
+
+\vspace{1cm}
+\begin{tikzpicture}
+\node[draw, rectangle, minimum size=.6cm] (pd1) {$50~\Omega$};
+
+\node[draw, rectangle, minimum size=.6cm, above of=pd1, yshift=2em] (plus3) {$+$};
+\node[draw=none, left of=plus3, xshift=-0.8em] {{\color{OliveGreen}adc\_offset}};
+
+\draw [->,>=stealth,line width=2pt,blue] ([yshift=1em] pd1) node [draw, black, yshift=1.4em, rotate=-90, fill, signal]{} -- (plus3);
+
+\node[draw, circle, minimum size=0.6cm, yshift=0.5em, above of=plus3] (mix1) {};
+\draw [-] (mix1.south west) -- (mix1.north east);
+\draw [-] (mix1.south east) -- (mix1.north west);
+
+\draw [->,>=stealth,line width=2pt,blue] (plus3) -- (mix1);
+
+\node[draw, rectangle, minimum size=0.6cm, left of=mix1, xshift=-0.6em] (dat) {$\mathbb{C}$2$\mathbb{R}$};
+
+\node [circle, draw ,minimum size=.7cm, left of=dat, xshift=-0.7em] (osc1) {};
+\draw ([xshift=-0.3cm] osc1.center) sin ([xshift=-0.15cm, yshift=-0.15cm] osc1.center) cos (osc1.center) sin ([xshift=0.15cm, yshift=0.15cm] osc1.center) cos ([xshift=0.3cm] osc1.center);
+\node[draw=none, left of=osc1, xshift=-1.3em, yshift=0em] {{\color{OliveGreen}demod\_nco}};
+
+\draw [->,>=stealth,line width=2pt,blue] (dat) -- (mix1);
+\draw [->,>=stealth,line width=2pt,blue] (osc1) -- (dat);
+
+\node[draw, rectangle, minimum size=.6cm,  above of=mix1] (fir) {};
+\node[draw=none, left of=fir, xshift=-0.8em] {{\color{OliveGreen}demod\_fir}};
+\draw [-, line width=1pt, color=black!60!green, rounded corners] ([xshift=.05cm,yshift=-.2cm] fir.north west) -| ([xshift=-.2cm,yshift=+.2cm] fir.south east);
+\draw [->,>=stealth, line width=1pt, color=black!60!green] ([xshift=-.1cm,yshift=-.15cm] fir.north east) -- ([xshift=-.1cm,yshift=+.15cm] fir.south east);
+\draw [->,>=stealth,line width=2pt,blue] (mix1) -- (fir);
+
+\node[draw, rectangle, minimum size=.6cm, above of=fir, xshift=0em] (sh) {{\color{OliveGreen}dyn-sh}};
+\draw [->,>=stealth,line width=2pt,blue] (fir) -- (sh);
+
+\node[draw, rectangle, minimum size=.6cm, right of=sh, xshift=1em] (spl) {};
+\draw [-,line width=2pt,blue] (spl.west) -- (spl.center);
+\draw [-,line width=2pt,blue] (spl.center) -- ([yshift=-0.04cm] spl.north east);
+\draw [-,line width=2pt,blue] (spl.center) -- ([yshift=+0.04cm] spl.south east);
+\draw [-,>=stealth,line width=2pt,blue] (sh) -- (spl);
+
+\node[draw, rectangle, minimum size=.6cm, right of=spl, yshift=-2.5em] (plus1) {$\sum~2^n$};
+\draw [->,>=stealth, line width=1pt] ([xshift=-.65cm,yshift=-.15cm] plus1.north east) -- ([xshift=-.65cm,yshift=+.15cm] plus1.south east);
+
+\node[draw, rectangle, minimum size=0.8cm, below of=plus1, yshift=-0.5em] (dat) {Data2Ram};
+
+\node[draw, circle, gray, minimum size=0.5cm, right of=spl, yshift=0.75em, xshift=1em,line width=2pt] (none) {};
+\draw [-,gray,line width=2pt] (none.south west) -- (none.north east);
+
+\draw [->,>=stealth, dashed, line width=2pt,blue] ([yshift=-0.04cm] spl.north east) -- (none);
+
+\draw [->,>=stealth,line width=2pt,blue] (plus1) -- (dat);
+
+\draw [->,>=stealth,line width=2pt,blue] ([yshift=0.04cm] spl.south east) -| (plus1);
+
+
+\node[draw, rectangle, minimum size=.6cm, xshift=10em, right of=plus3] (dac) {$+$};
+\node[draw=none, right of=dac, xshift=0.8em] {{\color{OliveGreen}dac\_offset}};
+
+\node[draw, circle, red, minimum size=0.5cm, above of=dac, yshift=0.5em, line width=2pt] (none2) {};
+\draw [-,red,line width=2pt] (none2.south west) -- (none2.north east);
+\draw [->,>=stealth,line width=2pt,blue] (none2) -- (dac);
+
+\node[draw, circle, minimum size=0.6cm, yshift=-2em, below of=dac] (V) {V};
+\draw [->,>=stealth,line width=2pt,blue] (dac) -- node [draw, black, yshift=0.3em, rotate=-90, fill, signal]{} (V);
+\end{tikzpicture}
+\vspace{1cm}
+
+In order to deploy as few resources as possible, we show here methods using the presented design. However the voltage offset of the converters is a property of the board currently used (that may vary in the long term), and a method using a simpler design may give more precise results. 
+\newline
+
+To compensate the ADC offset, we place a $50~\Omega$ SMA resistor terminason at the input of the board. The principle of this adjustment is to set up a demodulation demod\_nco that is only mixed with the signal resulting of the ADC voltage offset. Then the compensation of the offset is characterized by a minimization of the signal after the demodulation mixer, using the adc\_offset block. To do this, proceed as follows:
+
+\vspace{0.3cm}
+\begin{enumerate}
+	\setlength\itemsep{-0.1cm}
+	\item Load the fir coefficients (if not done yet).
+	\item Put on the signal monitoring (see section \ref{sect:Monitoring})
+	\item Set a demodulation frequency that is not blocked by the fir, and included in the frequency range monitored by the Data2Ram (here $488~kHz$). Here we choose a demodulation of $10~kHz$. 
+	\item Decrease the dyn-sh from $18~bit$ so that the signal range is roughly close to the maximum range (a sine above i.e. $8191~arb.~unit$ in the time domain), and without overflow.
+	\item Adjust the adc\_offset to minimize the demodulation sine. 
+\end{enumerate}
+\vspace{0.3cm}
+
+This final step is represented in the figure below, before adjustment (adc\_offset $=~0~arb.~unit$) to the left, and after adjustment. Here we adjusted the adc\_offset to $115~arb.~unit$, meaning an offset of around $-115~arb.~unit$.
+
+\begin{figure}[h!tb]
+	\begin{center}
+		\vspace{0.5cm}
+		\includegraphics[width=8cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/adc_offset0.png}
+		\includegraphics[width=8cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/adc_offset115.png}
+		\caption{Demodulation signal before compensation of the offset with adc\_offset $=~0~arb.~unit$ (left), and with the compensation with adc\_offset $=-115~arb.~unit$ (right).}
+		\label{fig:adc_offset}
+	\end{center}
+\end{figure}
+\vspace{2cm}
+Thereafter to compensate the DAC offset voltage, the principle is just to measure it at the output with a voltmeter. The procedure is simpler:
+
+\vspace{0.3cm}
+\begin{enumerate}
+	\setlength\itemsep{-0.1cm}
+	\item Plug the voltmeter to the SMA output.
+	\item Disable the output DDS by setting its amplitude dds\_ampl to $0~arb.~unit$.
+	\item Measure the voltage: it corresponds to the DAC offset.
+	\item Compensate the DAC offset using the dac\_offset value, so that the measured voltages is brought to $0~V$.
+\end{enumerate}
+\vspace{0.3cm}
+
+As an example, here we measured a DAC offset of $3.6~mV$, compensated with a dac\_offset $-30~arb.~unit$.
+
+\subsubsection{Make the modulation/demodulation chain}
+
+To start using the design, we must generate the sine signal with the nco, and make its demodulation:
+
+\vspace{0.3cm}
+\begin{enumerate}
+	\setlength\itemsep{-0.1cm}
+	\item Reconnect the input to the output, with the attenuator in between.
+	\item Set the dds\_nco frequency, here we use $30~MHz$. The NCO offset is kept at $0$, and the phase offset "poff" is kept internal.
+	\item Since the aim is to apply a correction to the frequency of the NCO, the "pinc" checkbox is unchecked so that the phase increment is external.
+	\item Set the parameter dds\_f0 to the modulation frequency, here $30~MHz$, so that the external phase increment without corrections corresponds to the desired modulation frequency. 
+	\item Set the amplitude parameter dds\_ampl to the maximum. 
+	\item Align the demod\_nco with the modulation frequency, i.e. $30~MHz$ here. 
+\end{enumerate}
+\vspace{0.3cm}
+
+Here it seems to be useless to set the value dds\_nco since only the value of dds\_f0 is taken into account, with the external increment. However, this external frequency will be modified by the correction signal of the lock loop, and can quickly drift if the lock gains are not well adjusted. In this case, a reset of the modulation frequency can be performed by switching between an external and an internal phase increment. 
+\newline
+
+Then the dynamic range must be adapted before to choose either to perform an amplitude or a phase demodulation. This avoids to perform a wrong adjustment due to some overflow.
+
+\subsubsection{Adjust the dynamic range}
+
+
+
+\subsubsection{Lock the noise of the small RF link}
+
+
+\subsubsection{Phase lock the NCO on a second NCO}
 
 \end{document}
 

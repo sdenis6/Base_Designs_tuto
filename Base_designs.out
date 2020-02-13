@@ -42,3 +42,9 @@
 \BOOKMARK [2][-]{subsection.11.1}{IP configuration}{section.11}% 42
 \BOOKMARK [2][-]{subsection.11.2}{Webserver configuration}{section.11}% 43
 \BOOKMARK [2][-]{subsection.11.3}{Expected output}{section.11}% 44
+\BOOKMARK [3][-]{subsubsection.11.3.1}{Load the fir coefficients}{subsection.11.3}% 45
+\BOOKMARK [3][-]{subsubsection.11.3.2}{Adjust the ADC and DAC offsets}{subsection.11.3}% 46
+\BOOKMARK [3][-]{subsubsection.11.3.3}{Make the modulation/demodulation chain}{subsection.11.3}% 47
+\BOOKMARK [3][-]{subsubsection.11.3.4}{Adjust the dynamic range}{subsection.11.3}% 48
+\BOOKMARK [3][-]{subsubsection.11.3.5}{Lock the noise of the small RF link}{subsection.11.3}% 49
+\BOOKMARK [3][-]{subsubsection.11.3.6}{Phase lock the NCO on a second NCO}{subsection.11.3}% 50
