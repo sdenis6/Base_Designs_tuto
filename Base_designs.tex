@@ -1,6 +1,6 @@
 \documentclass[12pt,oneside]{article}
 \usepackage{makeidx,anysize,mflogo,xspace,float,epsfig,url}
-\usepackage{amsmath,amsfonts,amssymb,a4wide} 
+\usepackage{amsmath,amsfonts,amssymb,a4wide,pifont} 
 \usepackage[utf8]{inputenc}
 %\usepackage[francais]{babel}
 %\usepackage[french]{babel}
@@ -74,7 +74,7 @@ The points discussed, listed below, are wrapped up in the example of a control l
 \end{multicols}
 
 
-\section{Reminder on signal dynamics}
+\section{Reminder on signal dynamics}\label{sect:reminder}
 
 Regardless of the presented functions, it's obviously better to optimize the dynamic of a signal to the range of data available. This first minimizes the part of noise of the electronics with respect to the signal. Secondly if the signal dynamic exceeds the range available, there is an overflow. For instance $14~bits$ signed data represent a range of $\pm 13~bits$ ie. from $-8192$ to $8191~arb.~unit$. Above $8191~arb.~unit$, there is an overflow and the signal returns to the beginning of the range, ie. $-8192$. Representation in Fig.\ref{fig:overflow}.
 
@@ -866,7 +866,7 @@ A frequency and a phase modulation can also be performed using the phase increme
 \begin{figure}[h!tbp]
 	\begin{center}
 		\vspace{-3.5cm}
-		\includegraphics[width=8.4cm,trim={10cm 1cm 2.5cm 0cm}, clip]{design/FMPM3.pdf}
+		\includegraphics[width=8.4cm,trim={10cm 1cm 2.5cm 0cm}, clip]{design/FMPM4.pdf}
 		\caption{Part of the block diagram for frequency (orange) and phase (purple) modulation of a NCO.}
 		\label{fig:mod_phase}
 	\end{center}
@@ -883,15 +883,14 @@ A frequency and a phase modulation can also be performed using the phase increme
 \draw [->,>=stealth,line width=2pt,blue] (osc1) -- (datout);
 \draw [->,>=stealth,line width=2pt,blue] (datout) -- (o1);
 
-\node[draw, rectangle, minimum size=.6cm, left of=osc1, xshift=0.2cm, above of=osc1] (plus) {sh};
-\node[draw, rectangle, minimum size=.6cm, left of=plus] (plus1) {$+$};
-\draw [->,>=stealth,line width=2pt,blue] (plus.east) -| (osc1.north);
+\node[draw, rectangle, minimum size=.6cm, left of=osc1, xshift=0.2cm, above of=osc1] (plus1) {$+$};
+\draw [->,>=stealth,line width=2pt,blue] (plus1.east) -| (osc1.north);
 
 \node[draw, rectangle, minimum size=0.8cm, xshift=-0.5cm, left of=plus1, left of=plus1] (dat) {$\mathbb{C}$2$\mathbb{R}$};
-\node[draw, rectangle, minimum size=0.8cm, xshift=-4.3cm, below of=osc1] (dat1) {$\mathbb{C}$2$\mathbb{R}$};
+\node[draw, rectangle, minimum size=0.8cm, xshift=-3.3cm, below of=osc1] (dat1) {$\mathbb{C}$2$\mathbb{R}$};
 
 \node[draw, rectangle, minimum size=.6cm, right of=dat, xshift=0.4cm] (sh1) {sh};
-\node[draw, rectangle, minimum size=.6cm, right of=dat1, xshift=0.4cm] (exp2) {exp};
+\node[draw, rectangle, minimum size=.6cm, right of=dat1, xshift=0.5cm] (exp2) {exp};
 
 \node [circle, draw ,minimum size=.6cm, xshift=-0.5cm, left of=dat] (mix1) {};
 \draw [-] (mix1.south west) -- (mix1.north east);
@@ -906,7 +905,6 @@ A frequency and a phase modulation can also be performed using the phase increme
 \draw [->,>=stealth,line width=2pt,blue] (mix1) -- (dat);
 \draw [->,>=stealth,line width=2pt,blue] (dat) -- (sh1);
 \draw [->,>=stealth,line width=2pt,blue] (sh1) -- (plus1);
-\draw [->,>=stealth,line width=2pt,blue] (plus1) -- (plus);
 \draw [->,>=stealth,line width=2pt,blue] (mix2) -- (dat1);
 \draw [->,>=stealth,line width=2pt,blue] (dat1) -- (exp2);
 \draw [->,>=stealth,line width=2pt,blue] (exp2) -| (osc1.south);
@@ -917,7 +915,7 @@ A frequency and a phase modulation can also be performed using the phase increme
 \node [circle, draw ,minimum size=.6cm, below of=mix2, left of=mix2, yshift=0.2cm] (osc3){};
 \draw ([xshift=-0.2cm] osc3.center) sin ([xshift=-0.10cm, yshift=-0.10cm] osc3.center) cos (osc3.center) sin ([xshift=0.10cm, yshift=0.10cm] osc3.center) cos ([xshift=0.2cm] osc3.center);
 
-\node[draw, rectangle, minimum size=0.8cm, left of=osc1, xshift=-7.1cm] (mampl) {$\lambda$};
+\node[draw, rectangle, minimum size=0.8cm, left of=osc1, xshift=-6.1cm] (mampl) {$\lambda$};
 \node[draw, rectangle, minimum size=.6cm, right of=mampl, yshift=-0.25cm] (exp1) {exp};
 \node[right of=mampl, xshift=0.6cm, yshift=0.25cm] (exp3) {};
 \draw [-,line width=2pt,blue] ([yshift=0.15cm] mampl.south east) -- (exp1);
@@ -958,15 +956,13 @@ IPs configuration in this example:
 		\hdashline
 		& Data in size: $16~bits$\\expanderReal\_2 & Data in size: $12~bits$\\ &Format: Signed \\
 		\hline
-		shiftReal\_1&Data in size: $27~bits$ \newline data out size: $32~bits$ \\
-		\hdashline
-		shiftReal\_2&Data in size: $32~bits$ \newline data out size: $40~bits$ \\
+		shiftReal\_1&Data in size: $27~bits$ \newline data out size: $40~bits$ \\
 		\hline
 		mixer\_sin\_1&Data in/out size: $27~bits$ \newline Nco\_size: $16~bits$ \\
 		\hdashline
 		mixer\_sin\_2&Data in/out size: $16~bits$ \newline Nco\_size: $16~bits$ \\
 		\hline
-		$f_0$&Data in/out size: $32~bits$ \newline Format: Signed \\
+		$f_0$&Data in/out size: $40~bits$ \newline Format: Signed \\
 		\hline
 		convert$\mathbb{C}$to$\mathbb{R}$\_1&Data size: $27~bits$\\
 		\hdashline
@@ -2091,7 +2087,7 @@ To start using the design, we must generate the sine signal with the nco, and ma
 	\item Set the dds\_nco frequency, here we use $30~MHz$. The NCO offset is kept at $0$, and the phase offset "poff" is kept internal.
 	\item Since the aim is to apply a correction to the frequency of the NCO, the "pinc" checkbox is unchecked so that the phase increment is external.
 	\item Set the parameter dds\_f0 to the modulation frequency, here $30~MHz$, so that the external phase increment without corrections corresponds to the desired modulation frequency. 
-	\item Set the amplitude parameter dds\_ampl to the maximum. 
+	\item Set the amplitude parameter dds\_ampl close to the maximum, for instance $8000~arb.~unit$. Do not use the maximum value avoids to create an overflow resulting from the dac\_offset value. 
 	\item Align the demod\_nco with the modulation frequency, i.e. $30~MHz$ here. 
 \end{enumerate}
 \vspace{0.3cm}
@@ -2103,12 +2099,75 @@ Then the dynamic range must be adapted before to choose either to perform an amp
 
 \subsubsection{Adjust the dynamic range}
 
+The dynamic range is primarily affected by the input power of the signal, and this one may be adapted first (see section \ref{sect:reminder}). In case it is not desired or for thinner adjustments, then the dynamic shifter can be used To adjust the dynamic range of the signal after the fir: 
+
+\vspace{0.3cm}
+\begin{enumerate}
+	\setlength\itemsep{-0.1cm}
+	\item Slightly shift the demodulation frequency to make a beatnote between the modulation and demodulation signals, for instance a $10~kHz$ shift. This beatnote shows the range of the signal after mixing. 
+	\item Increase the shift of the dynamic shifter from $0$ until the $10~kHz$ beatnote is well drown, and without overflow. Here we set is to $\pm 13~bits$.
+	\item If there is an overflow, increase the shift.
+	\item If the range is below $\pm 4000~arb.~unit$, decrease the shift.
+\end{enumerate}
+\vspace{0.3cm}
+
+\begin{figure}[h!tb]
+	\begin{center}
+		\vspace{0.5cm}
+		\includegraphics[width=5.2cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/12shdyn.png}
+		\includegraphics[width=5.2cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/13shdyn.png}
+		\includegraphics[width=5.2cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/14shdyn.png}
+		\caption{Dynamic shift of 12 {\color{red}\ding{55}}, 13 {\color{OliveGreen}\ding{51}}, and 14 {\color{red}\ding{55}}.}
+		\label{fig:shdynadj}
+	\end{center}
+\end{figure}
+\vspace{2cm}
 
 
 \subsubsection{Lock the noise of the small RF link}
 
+This design offers two possibilities: implement a phase lock loop (PLL) or an amplitude lock loop (ALL). The PLL is set up with a phase demodulation (modulation and demodulation are in quadrature, see section \ref{sect:demod}) while the ALL is set up with an amplitude demodulation (modulation and demodulation are in phase). 
+
+To make the demonstration of this design more visual, we will set up here an ALL. The procedure to adjust the lock loop is as following:
+
+\vspace{0.3cm}
+\begin{enumerate}
+	\setlength\itemsep{-0.1cm}
+	\item Make sure the PI integrator is reset: the "rst\_int" checkbox of the PI/ki gain must be checked.
+	\item Make sure the "pinc" checkbox of the dds\_nco is unchecked, to allow the reception of the corrected phase increment.
+	\item Choose the amplitude or phase demodulation, using the phase offset slider of the demod\_nco. Here we choose the amplitude demodulation:
+	
+\begin{figure}[h!tb]
+	\begin{center}
+		\vspace{0.5cm}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/1ampdemod.png}
+		\caption{Signal after amplitude demodulation. No gain yet.}
+		\label{fig:1ampdemod.png}
+	\end{center}
+\end{figure}	
+	
+	\item Initially set the PI range to the maximum. It may be readjusted later.
+	\item Gradually increase the PI/kp gain from $0$ until the system starts to oscillate, and set the PI/kp gain roughly to a value before the oscillation.
+	\item If no oscillation is observed and if the signal is below $\pm 4000~arb.~unit$, decrease the shift of the dynamic shifter and make the previous adjustment.
+	\item If the oscillations occur for a too small gain, either increase the shift of the dynamic shifter, or decrease the value of PI\_range.
+	\item Set the PI/ki gain to $0$ and enable the integrator (i.e. uncheck the rst\_int checkbox).
+	\item Gradually increase the PI/ki gain from $0$. Before reaching the oscillations, there should be a PI/ki gain for which the thickness of the error signal is minimum. 
+	\item If the system oscillates, reset and disable the integrator, decrease the PI/ki gain and continue the previous adjustment. 
+	\item Once the system is locked roughly and depending on the application, thinner adjustments of the gains can be performed: noise analysis on the signal, response to a perturbation... 
+\end{enumerate}
+\vspace{0.3cm}
+
+
+
+
 
 \subsubsection{Phase lock the NCO on a second NCO}
+
+A faire, pour montrer l'efficacité du lock ?
+
+\section{FAQ}
+
+Des idées de questions ?
 
 \end{document}
 
