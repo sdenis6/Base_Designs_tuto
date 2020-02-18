@@ -866,7 +866,7 @@ A frequency and a phase modulation can also be performed using the phase increme
 \begin{figure}[h!tbp]
 	\begin{center}
 		\vspace{-3.5cm}
-		\includegraphics[width=8.4cm,trim={10cm 1cm 2.5cm 0cm}, clip]{design/FMPM4.pdf}
+		\includegraphics[width=8.4cm,trim={9.8cm 1cm 2.5cm 0cm}, clip]{design/FMPM4.pdf}
 		\caption{Part of the block diagram for frequency (orange) and phase (purple) modulation of a NCO.}
 		\label{fig:mod_phase}
 	\end{center}
@@ -973,10 +973,21 @@ IPs configuration in this example:
 	\end{tabular}
 \end{center}
 
-\vspace{0.5cm}
+\vspace{0.0cm}
 \subsection{Webserver configuration}
+\vspace{+0.0cm}
 
-Here, only the PM\_deviation is reconfigured between $-8192$ and $8191~arb.~unit$. Both FM\_nco, PM\_nco, f0, FM\_deviation and nco are configured between $0$ and $62000000~Hz$. The webserver is represented in fig.\ref{fig:FMPMwebserver}
+Here, only the PM\_deviation is reconfigured between $-8192$ and $8191~arb.~unit$. Both FM\_nco, PM\_nco, f0, FM\_deviation and nco are configured between $0$ and $62000000~Hz$. 
+
+Also f0 must be scaled to correspond to a phase increment. This takes into account the sampling rate, here $125~MHz$, and the size (i.e. frequency resolution) of f0. Then the control of f0 in the webserver takes the following form:
+
+\vspace{-0.1cm}
+\begin{lstlisting}[language=Python]
+liboscimp_fpga.add_const_set_offset("/dev/f0", int(round(float(value)/(125e6/2**40))))
+\end{lstlisting}
+\vspace{+0.5cm}
+
+The webserver is represented in fig.\ref{fig:FMPMwebserver}
 
 \begin{figure}[h!tb]
 	\begin{center}
@@ -986,20 +997,23 @@ Here, only the PM\_deviation is reconfigured between $-8192$ and $8191~arb.~unit
 		\label{fig:FMPMwebserver}
 	\end{center}
 \end{figure}
+\vspace{+0cm}
 
 \subsection{Expected frequency modulation}
+\vspace{+0.0cm}
 
 For the frequency modulation, we use the phase increment input of the nco. In the webserver this requires to uncheck the "pinc" checkbox. This means that the phase increment is external and whatever is the frequency mentioned in /dev/nco, it will not be taken into consideration. In this case, the frequency of the carrier must be written in /dev/f0: this adds to the FM\_nco a constant corresponding to the carrier frequency. 
-\newline\newline
+\newline
 To show an exaggerated example of the frequency modulation, we use a carrier frequency f0 of $5~MHz$. The frequency of the FM\_nco and the FM\_deviation must remain lower than the carrier frequency. Here we used a frequency modulation of $200~kHz$ and a deviation of $4~MHz$. We expect the following output: 
 
 \begin{figure}[!h!tb]
 	\begin{center}
-		\includegraphics[width=14cm]{scope/Mod_freqOk.pdf}
+		\includegraphics[width=12cm]{scope/Mod_freqOk.pdf}
 		\caption{Expected frequency modulation with a carrier at $5~MHz$, and a deviation of $4~MHz$.}
 		\label{fig:FMModOK}
 	\end{center}
 \end{figure}
+\vspace{0cm}
 
 \subsection{Expected phase modulation}
 
@@ -1009,12 +1023,13 @@ The example in fig.\ref{fig:PMModOK} represents a phase modulation for a carrier
 
 \begin{figure}[!h!tb]
 	\begin{center}
-		\includegraphics[width=14cm]{scope/Mod_phaseOk.pdf}
+		\includegraphics[width=12cm]{scope/Mod_phaseOk.pdf}
 		\caption{Expected phase modulation with a carrier at $1~MHz$, and a deviation of $2 \pi$..}
 		\label{fig:PMModOK}
 	\end{center}
 \end{figure}
 
+\vspace{-1cm}
 \subsection{Unexpected output}
 
 Unexpected outputs or a lack of signal can have several origins. Here is a non-exhaustive list of unexpected situations, and the potential solutions:
@@ -1034,15 +1049,15 @@ Unexpected outputs or a lack of signal can have several origins. Here is a non-e
 
 \section{Filtering}\label{sect:filtering}
 
-The FIR (Finite Impulse Response) filter has the role of filter with a number of coefficients that is configurable during the creation of a design. Similarly to the mean block that makes a moving average, the FIR has a decimation option. The decimation is performed before the filtering and slows the data flow. To learn more about the FIR, visit: https://github.com/oscimp/oscimpDigital/tree/master/doc/tutorials/redpitaya/4-FIR
+The FIR (Finite Impulse Response) filter has the role of filter with a number of coefficients that is configurable during the creation of a design. Similarly to the mean block that makes a moving average, the FIR has a decimation option. The decimation is performed before the filtering and slows the data flow. To learn more about the FIR, visit: \href{https://github.com/oscimp/oscimpDigital/tree/master/doc/tutorials/redpitaya/4-FIR}{https://github.com/oscimp/oscimpDigital/tree/master/doc/tutorials/redpitaya/4-FIR}
 
 \subsection{Calculation of the coefficients}
 
 The number of coefficients and their values determine the transfer function of the FIR. Therefore the coefficient must be calculated according to the situation. Also, the coefficients must be integers with a size determined in the FIR block, by default and in our case on $16~bits$ including one bit dedicated to the sign. 
 \newline\newline
-To compute the FIR coefficients, octave proposes the signal package\footnote{https://octave.sourceforge.io/signal/index.html} with the function fir1\footnote{https://octave.sourceforge.io/signal/function/fir1.html} that allows to design either lowpass, highpass, bandpass or bandstop filters. First, load the signal package of octave:
+To compute the FIR coefficients, octave proposes the signal package\footnote{\href{https://octave.sourceforge.io/signal/index.html}{https://octave.sourceforge.io/signal/index.html}} with the function fir1\footnote{\href{https://octave.sourceforge.io/signal/function/fir1.html}{https://octave.sourceforge.io/signal/function/fir1.html}} that allows to design either lowpass, highpass, bandpass or bandstop filters. First, load the signal package of octave:
 
-\vspace{-0.1cm}
+\vspace{0.2cm}
 \begin{lstlisting}
 octave:1> pkg load signal
 \end{lstlisting}
@@ -1400,7 +1415,7 @@ The number of samples of the dataReal\_to\_ram block, and the shift and number o
 
 The data stored in the data\_to\_ram buffer are C signed shorts, over $2~bytes$. With a data\_to\_ram configured with $2$ inputs and $K$ samples, this means the buffer contains ${4\times K~bytes}$. An example of reading of the data\_to\_ram block with a C script is presented here:
 \newline
-https://github.com/oscimp/oscimpDigital/tree/master/doc/tutorials/redpitaya/3-PLPS
+\href{https://github.com/oscimp/oscimpDigital/tree/master/doc/tutorials/redpitaya/3-PLPS}{https://github.com/oscimp/oscimpDigital/tree/master/doc/tutorials/redpitaya/3-PLPS}
 \newline\newline
 In python the C structs must be converted to a tuple using the package struct. In the following example we read, convert and deinterleave the two first values of each channel, stored in the buffer:
 
@@ -1646,8 +1661,8 @@ In this example the PLL aims at compensating the phase fluctuations that occur d
 \draw [-,line width=2pt, red] (pbs1) -- (fin);
 
 
-\node[draw, rectangle, xshift=14.35em, yshift=0em, right of=fin] (aom1) {AOM};
-\draw [-,line width=2pt, red] ([xshift=8em] fin.center)+(-0.5cm,0) arc (270:360+270:0.3) -- ([xshift=8em] fin.center)+(-0.25cm,0) arc (270:360+270:0.3) -- ([xshift=8em] fin.center) arc (270:360+270:0.3) -- ([xshift=8em] fin.center)+(.25cm,0) arc (270:360+270:0.3) -- ([xshift=8em] fin.center)+(.5cm,0) arc (270:360+270:0.3);
+\node[draw, rectangle, xshift=11.66em, yshift=0em, right of=fin] (aom1) {AOM};
+\draw [-,line width=2pt, red] ([xshift=6em] fin.center)+(-0.5cm,0) arc (270:360+270:0.3) -- ([xshift=6em] fin.center)+(-0.25cm,0) arc (270:360+270:0.3) -- ([xshift=6em] fin.center) arc (270:360+270:0.3) -- ([xshift=6em] fin.center)+(.25cm,0) arc (270:360+270:0.3) -- ([xshift=6em] fin.center)+(.5cm,0) arc (270:360+270:0.3);
 \draw [-,line width=2pt, red, rounded corners] (fin) -- ([xshift=4em] fin.center);
 \draw [-,line width=2pt, red] ([xshift=4em] fin.center) -- (aom1);
 \node[draw, rectangle, xshift=4em, yshift=2em, right of=aom1] (fm1) {FM};
@@ -1726,16 +1741,16 @@ In this example the PLL aims at compensating the phase fluctuations that occur d
 \draw [->,>=stealth,line width=2pt,blue] (sh) -- (exp);
 \draw [->,>=stealth,line width=2pt,blue] (exp) -- (f0);
 
-\node[draw, rectangle, minimum size=.6cm, right of=f0, xshift=0.1cm] (sh2) {sh$_2$};
-\draw [->,>=stealth,line width=2pt,blue] (f0) -- (sh2);
+%\node[draw, rectangle, minimum size=.6cm, right of=f0, xshift=0.1cm] (sh2) {sh$_2$};
+%\draw [->,>=stealth,line width=2pt,blue] (f0) -- (sh2);
 
-\node [circle, draw ,minimum size=.7cm, below of=sh2] (osc2) {};
+\node [circle, draw ,minimum size=.7cm, below of=f0] (osc2) {};
 \draw ([xshift=-0.3cm] osc2.center) sin ([xshift=-0.15cm, yshift=-0.15cm] osc2.center) cos (osc2.center) sin ([xshift=0.15cm, yshift=0.15cm] osc2.center) cos ([xshift=0.3cm] osc2.center);
 \node[draw=none, right of=osc2, xshift=+0.8em] {{\color{OliveGreen}dds\_nco}};
 
 \node[draw, rectangle, minimum size=0.6cm, below of=osc2, yshift=0em] (dat2) {$\mathbb{C}$2$\mathbb{R}$};
 
-\draw [->,>=stealth,line width=2pt,blue] (sh2) -- (osc2);
+\draw [->,>=stealth,line width=2pt,blue] (f0) -- (osc2);
 
 \node[draw, circle, minimum size=0.6cm, xshift=0em, below of=dat2] (mix12) {};
 \draw [-] (mix12.south west) -- (mix12.north east);
@@ -1774,7 +1789,7 @@ The IPs configuration is given in the following table :
 		\hline
 		\hspace{0.65cm} adc\_offset \newline dac\_offset&Data in/out size: $14~bits$\\
 		\hdashline
-		dds\_f0& Data in/out size: $32~bits$\newline Unsigned\\
+		dds\_f0& Data in/out size: $40~bits$\newline Unsigned\\
 		\hline
 		\hspace{0.55cm} demod\_nco \newline dds\_nco & Counter size: $40~bits$\newline Data size: $14~bits$\newline Lut size: $12~bits$\\
 		\hline
@@ -1804,9 +1819,7 @@ The IPs configuration is given in the following table :
 		\hline
 		exp& Data in size: $14~bits$ \newline Data out size: $20~bits$\\
 		\hline
-		sh$_1$& Data in size: $20~bits$ \newline Data out size: $32~bits$\\
-		\hdashline
-		sh$_2$& Data in size: $32~bits$ \newline Data out size: $40~bits$\\
+		sh$_1$& Data in size: $20~bits$ \newline Data out size: $40~bits$\\
 		\hline
 		\end{tabular}
 \end{center}
@@ -1824,7 +1837,7 @@ The dynamic shifter is also represented. It's increase corresponds to a division
 \begin{figure}[h!tb]
 	\begin{center}
 		\vspace{0.5cm}
-		\includegraphics[width=15cm,trim={0cm 0cm 0cm 0cm}, clip]{webserver/2020-02-11-154130_889x946_scrot.png}
+		\includegraphics[width=15cm,trim={0cm 0cm 0cm 0cm}, clip]{webserver/2020-02-17-151626_889x946_scrot.png}
 		\caption{Screenshot of the control loop webserver.}
 		\label{fig:pll_webserver}
 	\end{center}
@@ -1909,16 +1922,16 @@ Although this design was developed for the lock of the phase noise in a fiber li
 \draw [->,>=stealth,line width=2pt,blue] (sh) -- (exp);
 \draw [->,>=stealth,line width=2pt,blue] (exp) -- (f0);
 
-\node[draw, rectangle, minimum size=.6cm, right of=f0, xshift=0.1cm] (sh2) {sh$_2$};
-\draw [->,>=stealth,line width=2pt,blue] (f0) -- (sh2);
+%\node[draw, rectangle, minimum size=.6cm, right of=f0, xshift=0.1cm] (sh2) {sh$_2$};
+%\draw [->,>=stealth,line width=2pt,blue] (f0) -- (sh2);
 
-\node [circle, draw ,minimum size=.7cm, below of=sh2] (osc2) {};
+\node [circle, draw ,minimum size=.7cm, below of=f0] (osc2) {};
 \draw ([xshift=-0.3cm] osc2.center) sin ([xshift=-0.15cm, yshift=-0.15cm] osc2.center) cos (osc2.center) sin ([xshift=0.15cm, yshift=0.15cm] osc2.center) cos ([xshift=0.3cm] osc2.center);
 \node[draw=none, right of=osc2, xshift=+0.8em] {{\color{OliveGreen}dds\_nco}};
 
 \node[draw, rectangle, minimum size=0.6cm, below of=osc2, yshift=0em] (dat2) {$\mathbb{C}$2$\mathbb{R}$};
 
-\draw [->,>=stealth,line width=2pt,blue] (sh2) -- (osc2);
+\draw [->,>=stealth,line width=2pt,blue] (f0) -- (osc2);
 
 \node[draw, circle, minimum size=0.6cm, xshift=0em, below of=dat2] (mix12) {};
 \draw [-] (mix12.south west) -- (mix12.north east);
@@ -1939,7 +1952,7 @@ Although this design was developed for the lock of the phase noise in a fiber li
 
 \draw [-,line width=2pt,blue] (dac) -- node [draw, black, yshift=0.3em, rotate=-90, fill, signal]{} (aom1.center);
 
-\node[draw, rectangle, minimum size=.6cm, xshift=-7em, left of=aom1] (att) {Attenuator $15~dB$};
+\node[draw, rectangle, minimum size=.6cm, xshift=-6em, left of=aom1] (att) {Attenuator $15~dB$};
 
 \draw [->,>=stealth,line width=2pt,blue] ([xshift=+0.08em] aom1.center) -- (att);
 \draw [-,line width=2pt,blue] (att) -- ([xshift=-0.09em] pd1.center);
@@ -2147,39 +2160,54 @@ To make the demonstration of this design more visual, we will set up here an ALL
 \end{figure}	
 	
 	\item Initially set the PI range to the maximum. It may be readjusted later.
-	\item Gradually increase the PI/kp gain from $0$ until the system starts to oscillate, and set the PI/kp gain roughly to a value before the oscillation.
-	\item If no oscillation is observed and if the signal is below $\pm 4000~arb.~unit$, decrease the shift of the dynamic shifter and make the previous adjustment.
+	\item Gradually increase the PI/kp gain from $0$ until the system starts to oscillate, and set the PI/kp gain roughly to a value before the oscillation, see fig.\ref{fig:2ampdemod.png}.
+	
+\begin{figure}[h!tb]
+	\begin{center}
+		\vspace{0.5cm}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/bosc.png}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/osc.png}
+		\caption{System close to oscillation above, and system oscillating below.}
+		\label{fig:2ampdemod.png}
+	\end{center}
+\end{figure}	
+	
+	\item If no oscillation is observed and if the signal is below $\pm 4000~arb.~unit$, decrease the shift of the dynamic shifter and make the previous adjustment. However if the system oscillates, return to the previous shift.
 	\item If the oscillations occur for a too small gain, either increase the shift of the dynamic shifter, or decrease the value of PI\_range.
 	\item Set the PI/ki gain to $0$ and enable the integrator (i.e. uncheck the rst\_int checkbox).
 	\item Gradually increase the PI/ki gain from $0$. Before reaching the oscillations, there should be a PI/ki gain for which the thickness of the error signal is minimum. 
 	\item If the system oscillates, reset and disable the integrator, decrease the PI/ki gain and continue the previous adjustment. 
-	\item Once the system is locked roughly and depending on the application, thinner adjustments of the gains can be performed: noise analysis on the signal, response to a perturbation... 
+	\item Readjust eventually the PI/kp gain to minimize the thickness of the error signal.
+	\item Once the system is locked roughly (see fig.\ref{fig:3ampdemod.png}) and depending on the application, thinner adjustments of the gains can be performed: noise analysis on the signal, response to a perturbation... 
+	
+\begin{figure}[h!tb]
+	\begin{center}
+		\vspace{0.5cm}
+		\includegraphics[width=13cm,trim={0cm 0cm 0cm 0cm}, clip]{figures/1amplocked.png}
+		\caption{Signal locked. $PI/kp=4000$ $PI/ki=200$.}
+		\label{fig:3ampdemod.png}
+	\end{center}
+\end{figure}
+	
 \end{enumerate}
 \vspace{0.3cm}
 
+Although this protocol is presented with the example of an amplitude demodulation, it is also valid with a phase demodulation for a PLL. In this case the efficiency of the lock can be tested by locking the locking the NCO on the phase of a second NCO. 
 
+\subsubsection{Frequency reference}
 
-
-
-\subsubsection{Phase lock the NCO on a second NCO}
-
-A faire, pour montrer l'efficacité du lock ?
+Although the internal reference clock is a good base, its drift in the long term can be a problem for the transfer of an ultra stable frequency. In this case an external frequency reference with a better stability can be used. See:\newline \href{https://redpitaya.readthedocs.io/en/latest/developerGuide/125-14/extADC.html}{https://redpitaya.readthedocs.io/en/latest/developerGuide/125-14/extADC.html}.
 
 \section{FAQ}
 
-Des idées de questions ?
+\begin{itemize}
+	\setlength\itemsep{-0.0cm}
+	\item \textbf{What are "pinc" and "poff"?} \newline  \textit{"pinc" and "poff" for phase increments and phase offsets, are actuators represented by checkboxes, that allows to choose to have either internal or external phase increments or phase offsets of the NCO. If the phase increments and offsets are internal, the NCO is independent. If it is external, the NCO must have phase increments and offsets inputs.}
+	
+	\item \textbf{What is an overflow?} \newline  \textit{An overflow is situation where the signal dynamic exceed the dynamic range available. This leads to a misinterpretation or a saturation of the exceeding signal. With a digital signal the exceeding signal returns to the beginning of the range available.}
+	
+	\item \textbf{How to make a buildroot for the redpitaya board?} \newline  \textit{See \href{https://github.com/trabucayre/redpitaya}{https://github.com/trabucayre/redpitaya}}
+\end{itemize}
 
 \end{document}
 
-cp ./project_1.runs/impl_1/design_1_wrapper.bit .
-bootgen -image design_1_wrapper.bif -arch zynq -process_bitstream bin
-
-jmfriedt@rugged:~/xilinx/oimp/doc/tutorials/4-fpga_FIR/project_1/app$ /home/jmfriedt/enseignement/ufr/platforms/redpitaya/buildroot-2018.08.1/output/build/linux-3f3c7b60919d56119a68813998d3005bca501a40/scripts/dtc/dtc -@ -I dts -O dtb -o project_1.dtbo project_1.dts
-
- source /home/jmfriedt/xilinx/oimp/fpga_driver/sourceme.ggm 
- export BOARD_NAME=redpitaya
- export BR_DIR=/home/jmfriedt/enseignement/ufr/platforms/redpitaya/buildroot-2018.08.1/
- make
-
-
-/home/jmfriedt/enseignement/ufr/platforms/redpitaya/buildroot-2018.08.1/output/host/usr/bin/arm-linux-gcc -I /home/jmfriedt/xilinx/oimp/fpga_lib -o ma_lecture ma_lecture.c -L/home/jmfriedt/xilinx/oimp/fpga_lib -loscimp_fpga
