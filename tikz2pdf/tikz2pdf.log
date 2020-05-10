@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.6.19)  12 FEB 2020 10:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2020.4.17)  9 MAY 2020 22:35
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **tikz2pdf.tex
 (./tikz2pdf.tex
@@ -10,7 +10,7 @@ Document Class: standalone 2018/03/26 v1.3a Class to compile TeX sub-files stan
 dalone
 (/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 69.
+Package shellesc Info: Unrestricted shell escape enabled on input line 67.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
@@ -59,44 +59,36 @@ File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 \sa@box=\box27
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+runsystem(pdflatex  -shell-escape  -jobname 'tikz2pdf' '\expandafter\def\csname
+ sa@internal@run\endcsname{1}\input{tikz2pdf}')...executed.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-))
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks16
-\inpenc@posthook=\toks17
-)
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2018/11/13 3.27 The Babel package
+\sa@read=\read1
+runsystem(convert -density 300 -units PixelsPerInch tikz2pdf.pdf  -quality 90 t
+ikz2pdf.png)...executed.
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2018/11/13 3.27 Babel switching mechanism
-)
-(/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf
-Language: french 2019/01/30 v3.5d French support from the babel system
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2018/11/13 3.27 Babel common definitions
-\babel@savecnt=\count91
-\U@D=\dimen103
+Class standalone:
+Output written on tikz2pdf.png.
+ ) ) 
+Here is how much of TeX's memory you used:
+ 706 strings out of 494532
+ 11102 string characters out of 6176185
+ 65193 words of memory out of 5000000
+ 4433 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 34i,1n,56p,187b,53s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count92
-)
-\l@acadian = a dialect from \language\l@french 
-\FB@nonchar=\count93
-Package babel Info: Making : an active character on input line 414.
-Package babel Info: Making ; an active character on input line 415.
-Package babel Info: Making ! an active character on input line 416.
+No pages of output.
+PDF statistics:
+ 0 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+ter on input line 416.
 Package babel Info: Making ? an active character on input line 417.
 \FBguill@level=\count94
-\FBold@everypar=\toks18
+\FBold@everypar=\toks16
 \FB@Mht=\dimen104
 \mc@charclass=\count95
 \mc@charfam=\count96
@@ -117,7 +109,7 @@ Package babel Info: Making ? an active character on input line 417.
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks19
+\pgfutil@everybye=\toks17
 \pgfutil@tempdima=\dimen112
 \pgfutil@tempdimb=\dimen113
 
@@ -159,12 +151,12 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 Package: pgfsys 2019/02/02 v3.1.1 (3.1.1)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks20
-\pgfkeys@temptoks=\toks21
+\pgfkeys@pathtoks=\toks18
+\pgfkeys@temptoks=\toks19
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
 ex
-\pgfkeys@tmptoks=\toks22
+\pgfkeys@tmptoks=\toks20
 ))
 \pgf@x=\dimen116
 \pgf@y=\dimen117
@@ -180,9 +172,9 @@ ex
 \c@pgf@countb=\count102
 \c@pgf@countc=\count103
 \c@pgf@countd=\count104
-\t@pgf@toka=\toks23
-\t@pgf@tokb=\toks24
-\t@pgf@tokc=\toks25
+\t@pgf@toka=\toks21
+\t@pgf@tokb=\toks22
+\t@pgf@tokc=\toks23
 \pgf@sys@id@count=\count105
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2019/02/02 v3.1.1 (3.1.1)
@@ -232,9 +224,9 @@ Package: pgfcore 2019/02/02 v3.1.1 (3.1.1)
 \pgfmath@dimen=\dimen124
 \pgfmath@count=\count108
 \pgfmath@box=\box29
-\pgfmath@toks=\toks26
-\pgfmath@stack@operand=\toks27
-\pgfmath@stack@operation=\toks28
+\pgfmath@toks=\toks24
+\pgfmath@stack@operand=\toks25
+\pgfmath@stack@operation=\toks26
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -376,8 +368,8 @@ Package: pgffor 2019/02/02 v3.1.1 (3.1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen151
 \pgffor@skip=\dimen152
-\pgffor@stack=\toks29
-\pgffor@toks=\toks30
+\pgffor@stack=\toks27
+\pgffor@toks=\toks28
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2019/02/02 v3.1.1 (3.1.1)
@@ -532,7 +524,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks31
+\@emptytoks=\toks29
 \ex@=\dimen167
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -562,21 +554,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \dotsspace@=\muskip10
 \c@parentequation=\count129
 \dspbrk@lvl=\count130
-\tag@help=\toks32
+\tag@help=\toks30
 \row@=\count131
 \column@=\count132
 \maxfields@=\count133
-\andhelp@=\toks33
+\andhelp@=\toks31
 \eqnshift@=\dimen170
 \alignsep@=\dimen171
 \tagshift@=\dimen172
 \tagwidth@=\dimen173
 \totwidth@=\dimen174
 \lineht@=\dimen175
-\@envbody=\toks34
+\@envbody=\toks32
 \multlinegap=\skip44
 \multlinetaggap=\skip45
-\mathdisplay@stack=\toks35
+\mathdisplay@stack=\toks33
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
 )
@@ -589,22 +581,28 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ) (./tikz2pdf.aux)
 \openout1 = `tikz2pdf.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Info: Redefining \degres on input line 18.
-LaTeX Info: Redefining \dots on input line 18.
-LaTeX Info: Redefining \up on input line 18.
- ABD: EveryShipout initializing macros
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Info: Redefining \degres on input line 17.
+LaTeX Info: Redefining \dots on input line 17.
+LaTeX Info: Redefining \up on input line 17.
+
+
+Package french.ldf Warning: OT1 encoding should not be used for French.
+(french.ldf)                Add \usepackage[T1]{fontenc} to the preamble
+(french.ldf)                of your document; reported on input line 17.
+
+ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count134
@@ -612,12 +610,12 @@ LaTeX Info: Redefining \up on input line 18.
 \scratchbox=\box62
 \nofMPsegments=\count135
 \nofMParguments=\count136
-\everyMPshowfont=\toks36
+\everyMPshowfont=\toks34
 \MPscratchCnt=\count137
 \MPscratchDim=\dimen177
 \MPnumerator=\count138
 \makeMPintoPDFobject=\count139
-\everyMPtoPDFconversion=\toks37
+\everyMPtoPDFconversion=\toks35
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -661,38 +659,28 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 29.
+<../figures/convert.pdf, id=4, 614.295pt x 794.97pt>
+File: ../figures/convert.pdf Graphic file (type pdf)
+<use ../figures/convert.pdf>
+Package pdftex.def Info: ../figures/convert.pdf  used on input line 19.
+(pdftex.def)             Requested size: 130.88284pt x 98.11919pt.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 29.
+[1
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./tikz2pdf.aux) ) 
+ <../figures/convert.pdf>] (./tikz2pdf.aux) ) 
 Here is how much of TeX's memory you used:
- 16884 strings out of 494459
- 353103 string characters out of 6174603
- 461286 words of memory out of 5000000
- 20215 multiletter control sequences out of 15000+600000
- 6878 words of font info for 24 fonts, out of 8000000 for 9000
- 59 hyphenation exceptions out of 8191
- 55i,7n,71p,389b,793s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/
-sdenis/.texlive2018/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tikz2pdf.pdf (1 page, 52929 bytes).
+ 16410 strings out of 494532
+ 346999 string characters out of 6176185
+ 416521 words of memory out of 5000000
+ 19755 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 56i,5n,71p,445b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on tikz2pdf.pdf (1 page, 9856 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 29 compressed objects within 1 object stream
+ 22 PDF objects out of 1000 (max. 8388607)
+ 10 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 24 words of extra memory for PDF output out of 10000 (max. 10000000)
 
