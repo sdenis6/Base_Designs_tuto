@@ -327,6 +327,7 @@ fpgagen_recv_conf(char *filename, int reg, int *value);
 
 Those functions can be implemented in a graphic interface to constitute a user friendly control of the IPs. Here we show an example of webserver using RemI\footnote{Download and Faq : https://www.remigui.com/}, a cross platform remote gui for python. The wrapper liboscimp\_fpga.py makes the intermediary between the webserver and the libraries. It takes the following form:
 
+\vspace{-0.2cm}
 \begin{lstlisting}[language=Python]
 import ctypes
 from ctypes import *
@@ -348,6 +349,7 @@ def fpgagen_recv_conf(filename, reg):
 
 Then the example of functions implemented in the webserver to configure the IPs is:
 
+\vspace{-0.2cm}
 \begin{lstlisting}[language=Python]
 import liboscimp_fpga
 liboscimp_fpga.fpgagen_send_conf("/dev/my_file", my_reg, my_value)
@@ -357,6 +359,7 @@ liboscimp_fpga.fpgagen_send_conf("/dev/my_file", my_reg, my_value)
 
 In the webserver, values sent to the IPs can either take the form of slider, a spinbox, a checkbox, a button... In our case, a simple actuator will be represented by a checkbox, and any other controllable value by both a slider and a spinbox. The structure of the webserver is as follows:
 
+\vspace{-0.2cm}
 \begin{lstlisting}[language=Python]
 #!/usr/bin/env python
 
