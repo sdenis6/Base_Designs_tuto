@@ -316,9 +316,8 @@ bg
 
 \section{Webserver}\label{sect:webserver}
 
-The tunable parameters of the IPs are controlled through C coded functions, visible in the /oscimpDigital/lib/my\_lib.h library files. Example of functions with a generic driver "fpgagen":
+The tunable parameters of the IPs are controlled through C coded functions, visible in the {\tt /oscimpDigital/lib/my\_lib.h} library files. Example of functions with a generic driver ``fpgagen'':
 
-\vspace{-0.2cm}
 \begin{lstlisting}[language=C]
 fpgagen_send_conf(char *filename, int reg, int value); 
 fpgagen_recv_conf(char *filename, int reg, int *value);
@@ -328,7 +327,6 @@ fpgagen_recv_conf(char *filename, int reg, int *value);
 
 Those functions can be implemented in a graphic interface to constitute a user friendly control of the IPs. Here we show an example of webserver using RemI\footnote{Download and Faq : https://www.remigui.com/}, a cross platform remote gui for python. The wrapper liboscimp\_fpga.py makes the intermediary between the webserver and the libraries. It takes the following form:
 
-\vspace{-0.2cm}
 \begin{lstlisting}[language=Python]
 import ctypes
 from ctypes import *
@@ -350,7 +348,6 @@ def fpgagen_recv_conf(filename, reg):
 
 Then the example of functions implemented in the webserver to configure the IPs is:
 
-\vspace{-0.2cm}
 \begin{lstlisting}[language=Python]
 import liboscimp_fpga
 liboscimp_fpga.fpgagen_send_conf("/dev/my_file", my_reg, my_value)
@@ -360,7 +357,6 @@ liboscimp_fpga.fpgagen_send_conf("/dev/my_file", my_reg, my_value)
 
 In the webserver, values sent to the IPs can either take the form of slider, a spinbox, a checkbox, a button... In our case, a simple actuator will be represented by a checkbox, and any other controllable value by both a slider and a spinbox. The structure of the webserver is as follows:
 
-\vspace{-0.2cm}
 \begin{lstlisting}[language=Python]
 #!/usr/bin/env python
 
@@ -380,9 +376,9 @@ class MyApp(App):
 				self.hbox_MY_VALUE = gui.HBox(margin="10px")
 				self.lb_MY_VALUE = gui.Label("/dev/MY_VALUE_FILE", width="20%", margin="50px")
 				self.sd_MY_VALUE = gui.Slider(0, -8192, 8191, 1, width="60%", margin="10px")
-				self.sd_MY_VALUE.set_oninput_listener(self.sd_MY_VALUE_changed)
+				self.sd_MY_VALUE.onchange.do(self.sd_MY_VALUE_changed)
 				self.sb_MY_VALUE = gui.SpinBox(0, -8192, 8191, 1, width="20%", margin="10px")
-				self.sb_MY_VALUE.set_on_change_listener(self.sb_MY_VALUE_changed)
+				self.sb_MY_VALUE.onchange.do(self.sb_MY_VALUE_changed)
 				self.sd_MY_VALUE_changed(self.sd_MY_VALUE, self.sd_MY_VALUE.get_value())
 				self.hbox_MY_VALUE.append(self.lb_MY_VALUE)
 				self.hbox_MY_VALUE.append(self.sd_MY_VALUE)
@@ -393,7 +389,7 @@ class MyApp(App):
 				self.hbox_MY_ACTUATOR = gui.HBox(margin="10px")
 				self.lb_MY_ACTUATOR = gui.Label("/dev/MY_ACTUATOR_FILE", width="20%", margin="50px")
 				self.cb_MY_ACTUATOR = gui.CheckBox(True, width="5%", margin="10px")
-				self.cb_MY_ACTUATOR.set_on_change_listener(self.cb_MY_ACTUATOR_changed)
+				self.cb_MY_ACTUATOR.onchange.do(self.cb_MY_ACTUATOR_changed)
 				self.hbox_MY_ACTUATOR.append(self.lb_MY_ACTUATOR)
 				self.hbox_MY_ACTUATOR.append(self.cb_MY_ACTUATOR)
 				self.w.append(self.hbox_MY_ACTUATOR)
@@ -1489,7 +1485,7 @@ received_data = sock.recv() #the data received remains to be converted, deinterl
 \end{lstlisting}
 \vspace{0.5cm}
 
-Then the data remains to be processed.
+Then the data remain to be processed.
 
 \subsection{Data monitoring}
 
@@ -1828,6 +1824,18 @@ The IPs configuration is given in the following table :
 Here, the expander (exp) and shifter (sh$_1$) are used to roughly adapt the range of the correction for the application described above. Although the correction range can also be adjusted (more precisely) with the PI\_range variable, it is possible that depending on the application the values of the expander (exp) and shifter (sh$_1$) must be adapted.
 
 \subsection{Webserver configuration}
+
+Rather than providing static Python web generator scripts which might evolve with newer
+versions of REMI \footnote{\url{https://pypi.org/project/remi/}}, we 
+generate the web server using the following sequence:
+\begin{enumerate}
+\item assuming Vivado binaries are accessible in the \$PATH and that the variables defined
+in {\tt settings.sh} have been designed, then in the {\tt design} directory execute:\\
+\verb~make project && make xml~ to generate the XML configuration file {\tt file.xml} 
+needed to configure \verb~webserver_generator.py~;
+\item execute {\tt app/tools/webserver\_generator/webserver\_generator.py file.xml} 
+to generate the webserver REMI Python script.
+\end{enumerate}
 
 In the following webserver, the PI block is represented with 5 variables: the set point PI/setpoint, the sign PI/sign, the proportional gain PI/kp, the integral gain PI/ki, and the rst\_int checkbox that corresponds both to a disable integral correction and reset of the integral accumulator. 
 \newline
